@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Jay Dev Joshi(jp) | Personal Website</title>
+    <title>Jay Dev Joshi | Personal Website</title>
 
     <style>
         * {
@@ -510,6 +510,18 @@
                 padding: 18px;
             }
         }
+    
+        /* Keep original design; 4 converter cards */
+        @media (min-width: 801px) {
+            .file-converter-box {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .file-tool h3 {
+            color: #ffffff;
+        }
+
     </style>
 </head>
 
@@ -522,6 +534,7 @@
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
+            <li><a href="#file-converter">Converters</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -548,7 +561,7 @@
         <div class="hero-right">
 
             <div class="profile">
-                <img src="myphoto.jpg" alt="Jay Dev Joshi">
+                <img src="images/profile.jpg" alt="Jay Dev Joshi">
             </div>
 
             <div class="date-converter-card" id="date-converter">
@@ -604,9 +617,9 @@
     <!-- JPG ↔ PDF CONVERTER -->
     <section class="file-converter-section" id="file-converter">
 
-        <h2>📄 JPG ↔ PDF Converter</h2>
+        <h2>📄 File Converter</h2>
         <p class="file-converter-subtitle">
-            Convert JPG images to PDF and PDF pages to JPG directly in your browser.
+            Convert JPG ↔ PDF and Word ↔ PDF directly in your browser.
         </p>
 
         <div class="file-converter-box">
@@ -654,6 +667,50 @@
                 </button>
 
                 <div class="file-status" id="pdf-status"></div>
+            </div>
+
+            <!-- WORD TO PDF -->
+            <div class="file-tool">
+                <h3>📝 Word → PDF</h3>
+                <p>
+                    Select a .docx Word document and convert its readable text into a PDF.
+                    Basic text and paragraph formatting are supported.
+                </p>
+
+                <input
+                    class="file-input"
+                    id="word-file"
+                    type="file"
+                    accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                >
+
+                <button class="file-btn" id="word-to-pdf-btn">
+                    Convert Word to PDF
+                </button>
+
+                <div class="file-status" id="word-status"></div>
+            </div>
+
+            <!-- PDF TO WORD -->
+            <div class="file-tool">
+                <h3>📄 PDF → Word</h3>
+                <p>
+                    Select a PDF and extract its readable text into an editable .docx Word file.
+                    Complex layouts, tables and images may not be preserved exactly.
+                </p>
+
+                <input
+                    class="file-input"
+                    id="pdf-word-file"
+                    type="file"
+                    accept="application/pdf"
+                >
+
+                <button class="file-btn" id="pdf-to-word-btn">
+                    Convert PDF to Word
+                </button>
+
+                <div class="file-status" id="pdf-word-status"></div>
             </div>
 
         </div>
@@ -891,7 +948,9 @@
     <!-- File converter libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/docx/8.5.0/docx.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
     <!-- JPG ↔ PDF CONVERTER SCRIPT -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -1066,6 +1125,190 @@
                 }
             });
 
+        });
+    </script>
+
+
+    <!-- WORD ↔ PDF CONVERTER SCRIPT -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const wordInput = document.getElementById("word-file");
+            const wordBtn = document.getElementById("word-to-pdf-btn");
+            const wordStatus = document.getElementById("word-status");
+
+            const pdfWordInput = document.getElementById("pdf-word-file");
+            const pdfWordBtn = document.getElementById("pdf-to-word-btn");
+            const pdfWordStatus = document.getElementById("pdf-word-status");
+
+            if (window.pdfjsLib) {
+                pdfjsLib.GlobalWorkerOptions.workerSrc =
+                    "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+            }
+
+            // Word → PDF
+            wordBtn.addEventListener("click", async function () {
+                const file = wordInput.files && wordInput.files[0];
+
+                if (!file) {
+                    wordStatus.textContent = "Please select a Word .docx file.";
+                    return;
+                }
+
+                try {
+                    wordBtn.disabled = true;
+                    wordStatus.textContent = "Reading Word document...";
+
+                    const arrayBuffer = await file.arrayBuffer();
+                    const result = await mammoth.extractRawText({ arrayBuffer });
+                    const text = (result.value || "").trim();
+
+                    if (!text) {
+                        wordStatus.textContent =
+                            "No readable text was found in this Word file.";
+                        return;
+                    }
+
+                    const { jsPDF } = window.jspdf;
+                    const pdf = new jsPDF({
+                        orientation: "portrait",
+                        unit: "mm",
+                        format: "a4"
+                    });
+
+                    const margin = 15;
+                    const pageWidth = 210;
+                    const pageHeight = 297;
+                    const usableWidth = pageWidth - margin * 2;
+                    const lines = pdf.splitTextToSize(text, usableWidth);
+
+                    pdf.setFont("helvetica", "normal");
+                    pdf.setFontSize(11);
+
+                    let y = margin;
+                    const lineHeight = 6;
+
+                    for (const line of lines) {
+                        if (y > pageHeight - margin) {
+                            pdf.addPage();
+                            y = margin;
+                        }
+                        pdf.text(line, margin, y);
+                        y += lineHeight;
+                    }
+
+                    pdf.save("JP-Joshi-Word-to-PDF.pdf");
+                    wordStatus.textContent =
+                        "Done! Word converted to PDF successfully.";
+                } catch (error) {
+                    console.error(error);
+                    wordStatus.textContent =
+                        "Could not convert the Word file.";
+                } finally {
+                    wordBtn.disabled = false;
+                }
+            });
+
+            // PDF → Word
+            pdfWordBtn.addEventListener("click", async function () {
+                const file = pdfWordInput.files && pdfWordInput.files[0];
+
+                if (!file) {
+                    pdfWordStatus.textContent = "Please select a PDF file.";
+                    return;
+                }
+
+                try {
+                    pdfWordBtn.disabled = true;
+                    pdfWordStatus.textContent = "Extracting PDF text...";
+
+                    const arrayBuffer = await file.arrayBuffer();
+                    const pdf = await pdfjsLib.getDocument({
+                        data: arrayBuffer
+                    }).promise;
+
+                    const paragraphs = [];
+
+                    for (
+                        let pageNumber = 1;
+                        pageNumber <= pdf.numPages;
+                        pageNumber++
+                    ) {
+                        pdfWordStatus.textContent =
+                            "Reading PDF page " +
+                            pageNumber +
+                            " of " +
+                            pdf.numPages +
+                            "...";
+
+                        const page = await pdf.getPage(pageNumber);
+                        const content = await page.getTextContent();
+
+                        const text = content.items
+                            .map(function (item) {
+                                return item.str;
+                            })
+                            .join(" ")
+                            .trim();
+
+                        if (text) {
+                            paragraphs.push(
+                                new docx.Paragraph({
+                                    text: text
+                                })
+                            );
+                        }
+
+                        if (pageNumber < pdf.numPages) {
+                            paragraphs.push(
+                                new docx.Paragraph({
+                                    text: ""
+                                })
+                            );
+                        }
+                    }
+
+                    if (!paragraphs.length) {
+                        pdfWordStatus.textContent =
+                            "No readable text was found in this PDF.";
+                        return;
+                    }
+
+                    const documentFile = new docx.Document({
+                        sections: [
+                            {
+                                properties: {},
+                                children: paragraphs
+                            }
+                        ]
+                    });
+
+                    const blob = await docx.Packer.toBlob(documentFile);
+
+                    if (window.saveAs) {
+                        saveAs(blob, "JP-Joshi-PDF-to-Word.docx");
+                    } else {
+                        const url = URL.createObjectURL(blob);
+                        const link = document.createElement("a");
+                        link.href = url;
+                        link.download = "JP-Joshi-PDF-to-Word.docx";
+                        document.body.appendChild(link);
+                        link.click();
+                        link.remove();
+                        setTimeout(function () {
+                            URL.revokeObjectURL(url);
+                        }, 1000);
+                    }
+
+                    pdfWordStatus.textContent =
+                        "Done! PDF converted to Word successfully.";
+                } catch (error) {
+                    console.error(error);
+                    pdfWordStatus.textContent =
+                        "Could not convert the PDF. Please check the file.";
+                } finally {
+                    pdfWordBtn.disabled = false;
+                }
+            });
         });
     </script>
 
