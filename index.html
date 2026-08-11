@@ -14,6 +14,10 @@
             font-family: Arial, sans-serif;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background: #0f172a;
             color: white;
@@ -21,12 +25,15 @@
 
         /* NAVBAR */
         nav {
-            height: 70px;
+            min-height: 70px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 0 8%;
             background: #020617;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .logo {
@@ -45,6 +52,7 @@
             color: white;
             text-decoration: none;
             font-size: 16px;
+            transition: 0.3s;
         }
 
         nav ul li a:hover {
@@ -57,6 +65,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 60px;
             padding: 60px 8%;
         }
 
@@ -94,24 +103,155 @@
             text-decoration: none;
             border-radius: 8px;
             font-weight: bold;
+            transition: 0.3s;
         }
 
         .btn:hover {
             background: white;
         }
 
-        /* PROFILE CIRCLE */
+        /* RIGHT SIDE */
+        .hero-right {
+            width: 390px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+        }
+
+        /* PROFILE */
         .profile {
-            width: 280px;
-            height: 280px;
+            width: 230px;
+            height: 230px;
             border-radius: 50%;
             background: linear-gradient(135deg, #38bdf8, #6366f1);
+            padding: 6px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 80px;
+            box-shadow: 0 0 50px rgba(56, 189, 248, 0.45);
+            overflow: hidden;
+        }
+
+        .profile img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* DATE CONVERTER */
+        .date-converter-card {
+            width: 100%;
+            padding: 22px;
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            border-radius: 18px;
+            background: rgba(2, 6, 23, 0.9);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .date-converter-card h2 {
+            color: #38bdf8;
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+
+        .converter-subtitle {
+            color: #94a3b8;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+        .converter-tabs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            padding: 4px;
+            background: #111c31;
+            border-radius: 9px;
+            margin-bottom: 15px;
+        }
+
+        .converter-tab {
+            border: 0;
+            padding: 9px;
+            border-radius: 7px;
+            background: transparent;
+            color: #cbd5e1;
             font-weight: bold;
-            box-shadow: 0 0 50px #38bdf8;
+            cursor: pointer;
+        }
+
+        .converter-tab.active {
+            background: #38bdf8;
+            color: #020617;
+        }
+
+        .converter-label {
+            display: block;
+            color: #e2e8f0;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        .converter-input {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            outline: none;
+            background: #0b1220;
+            color: white;
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        .converter-input:focus {
+            border-color: #38bdf8;
+        }
+
+        .converter-btn {
+            width: 100%;
+            border: 0;
+            border-radius: 8px;
+            padding: 11px;
+            background: linear-gradient(135deg, #38bdf8, #2563eb);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .converter-result {
+            margin-top: 12px;
+            padding: 12px;
+            border-radius: 10px;
+            background: #111c31;
+            text-align: center;
+        }
+
+        .converter-result small {
+            display: block;
+            color: #94a3b8;
+            margin-bottom: 4px;
+        }
+
+        #converted-date {
+            color: #38bdf8;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        #converted-detail {
+            display: block;
+            color: #cbd5e1;
+            font-size: 12px;
+            margin-top: 4px;
+        }
+
+        .converter-error {
+            color: #fda4af !important;
         }
 
         /* ABOUT */
@@ -121,7 +261,9 @@
             text-align: center;
         }
 
-        .about h2 {
+        .about h2,
+        .skills h2,
+        .contact h2 {
             font-size: 35px;
             color: #38bdf8;
             margin-bottom: 20px;
@@ -141,8 +283,6 @@
         }
 
         .skills h2 {
-            font-size: 35px;
-            color: #38bdf8;
             margin-bottom: 40px;
         }
 
@@ -159,6 +299,7 @@
             border-radius: 10px;
             color: white;
             font-size: 18px;
+            transition: 0.3s;
         }
 
         .skill:hover {
@@ -175,14 +316,48 @@
 
         .contact h2 {
             color: #f1f5f8;
-            font-size: 35px;
-            margin-bottom: 20px;
         }
 
         .contact p {
             color: #f7fafc;
-            margin-bottom: 25px;
+            margin-bottom: 18px;
         }
+
+        .contact a {
+            color: #38bdf8;
+            text-decoration: none;
+        }
+
+        /* SOCIAL */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px);
+        }
+
+        .facebook { background: #1877F2; }
+        .instagram { background: #E4405F; }
+        .tiktok { background: #000; }
+        .whatsapp { background: #25D366; }
+        .youtube { background: #FF0000; }
 
         /* FOOTER */
         footer {
@@ -193,20 +368,23 @@
         }
 
         /* MOBILE */
-        @media (max-width: 700px) {
-
+        @media (max-width: 850px) {
             nav {
-                padding: 0 5%;
+                padding: 15px 5%;
+                flex-direction: column;
+                gap: 15px;
             }
 
             nav ul {
-                gap: 12px;
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
             }
 
             .hero {
-                flex-direction: column-reverse;
+                flex-direction: column;
                 text-align: center;
-                gap: 50px;
+                gap: 40px;
                 padding: 50px 5%;
             }
 
@@ -214,10 +392,19 @@
                 font-size: 40px;
             }
 
+            .hero-right {
+                width: min(100%, 390px);
+            }
+        }
+
+        @media (max-width: 500px) {
             .profile {
-                width: 200px;
-                height: 200px;
-                font-size: 60px;
+                width: 190px;
+                height: 190px;
+            }
+
+            .date-converter-card {
+                padding: 18px;
             }
         }
     </style>
@@ -237,7 +424,6 @@
         </ul>
     </nav>
 
-
     <!-- HOME -->
     <section class="hero" id="home">
 
@@ -247,29 +433,82 @@
             <h1>JP <span>Joshi</span></h1>
 
             <p>
-                I am a beignner of web page developer. 
-                
+                I am a beginner web page developer.
+                I am learning web development and building
+                my skills step by step.
             </p>
+
             <a href="#contact" class="btn">Contact Me</a>
         </div>
 
-       <div class="profile">
-    <img src="myphoto.jpg" alt="JpJoshi">
-</div>
+        <!-- RIGHT SIDE: PHOTO + DATE CONVERTER -->
+        <div class="hero-right">
 
-    </section> 
+            <div class="profile">
+                <img src="myphoto.jpg" alt="Jay Dev Joshi">
+            </div>
 
+            <div class="date-converter-card" id="date-converter">
+                <h2>📅 BS ↔ AD Converter</h2>
+                <p class="converter-subtitle">
+                    Bikram Sambat & English Date
+                </p>
+
+                <div class="converter-tabs">
+                    <button class="converter-tab active" data-mode="bs-to-ad">
+                        BS → AD
+                    </button>
+                    <button class="converter-tab" data-mode="ad-to-bs">
+                        AD → BS
+                    </button>
+                </div>
+
+                <div id="bs-input-box">
+                    <label class="converter-label" for="bs-date">
+                        BS Date (वि.सं.)
+                    </label>
+                    <input
+                        class="converter-input"
+                        id="bs-date"
+                        type="text"
+                        inputmode="numeric"
+                        placeholder="2083-04-27"
+                        maxlength="10"
+                    >
+                </div>
+
+                <div id="ad-input-box" style="display:none;">
+                    <label class="converter-label" for="ad-date">
+                        AD Date
+                    </label>
+                    <input class="converter-input" id="ad-date" type="date">
+                </div>
+
+                <button class="converter-btn" id="convert-btn">
+                    Convert Date
+                </button>
+
+                <div class="converter-result" aria-live="polite">
+                    <small>Result</small>
+                    <strong id="converted-date">Enter a date above</strong>
+                    <span id="converted-detail"></span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
         <h2>About Me</h2>
 
         <p>
-            Hello! My name is Jay Dev Joshi(JP).
-            I am learning web development and
-            building my skills step by step.
+            Hello! My name is Jay Dev Joshi (JP).
+            I am learning web development and building
+            my skills step by step.
             My goal is to become a professional web developer.
         </p>
-
     </section>
-
 
     <!-- SKILLS -->
     <section class="skills" id="skills">
@@ -277,101 +516,201 @@
         <h2>My Skills</h2>
 
         <div class="skill-box">
-
             <div class="skill">HTML</div>
-
             <div class="skill">CSS</div>
-
             <div class="skill">JavaScript</div>
-
             <div class="skill">Web Design</div>
-        <div class="skill">account management </div>
-
+            <div class="skill">Account Management</div>
         </div>
 
     </section>
 
-
     <!-- CONTACT -->
     <section class="contact" id="contact">
 
-    <h2>Contact Me</h2>
+        <h2>Contact Me</h2>
 
-    <p> If You Want to work with me? Feel free to contact me.</p>
+        <p>If you want to work with me, feel free to contact me.</p>
 
-    <p>
-        📞 Phone:
-        <a href="tel:+9779848783884">
-            +977 9848783884
-        </a>
-    </p>
+        <p>
+            📞 Phone:
+            <a href="tel:+9779848783884">+977 9848783884</a>
+        </p>
 
-    <p>
-        📧 Email:
-        <a href="mailto:jpjoshi023@gmail.com">
-            jpjoshio23@gmail.com
-        </a>
-    </p>
- <p>
- 
-   <style>
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin: 30px 0;
-}
+        <p>
+            📧 Email:
+            <a href="mailto:jpjoshi023@gmail.com">jpjoshi023@gmail.com</a>
+        </p>
 
-.social-links a {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-decoration: none;
-    font-size: 24px;
-    transition: 0.3s;
-}
+        <div class="social-links">
+            <a
+                href="https://www.facebook.com/jayparkashzoc"
+                class="facebook"
+                target="_blank"
+                rel="noopener"
+                aria-label="Facebook"
+            >f</a>
 
-.social-links a:hover {
-    transform: translateY(-5px);
-}
+            <a
+                href="#"
+                class="instagram"
+                aria-label="Instagram"
+            >◎</a>
 
-.facebook { background: #1877F2; }
-.instagram { background: #E4405F; }
-.tiktok { background: #000; }
-.whatsapp { background: #25D366; }
-.youtube { background: #FF0000; }
-</style>
+            <a
+                href="https://www.tiktok.com/@jpjoshi08"
+                class="tiktok"
+                target="_blank"
+                rel="noopener"
+                aria-label="TikTok"
+            >♪</a>
 
-<div class="social-links">
+            <a
+                href="#"
+                class="whatsapp"
+                aria-label="WhatsApp"
+            >☏</a>
 
-    <a href="https://www.facebook.com/jayparkashzoc" class="facebook" target="_blank">f</a>
+            <a
+                href="https://www.youtube.com/@jpjoshi1996"
+                class="youtube"
+                target="_blank"
+                rel="noopener"
+                aria-label="YouTube"
+            >▶</a>
+        </div>
 
-    <a href="#" class="instagram" target="_blank">◎</a>
-
-    <a href="https://www.tiktok.com/@jpjoshi08" class="tiktok" target="_blank">♪</a>
-
-    <a href="#" class="whatsapp" target="_blank">☏</a>
-
-    <a href="https://www.youtube.com/@jpjoshi1996" class="youtube" target="_blank">▶</a>
-
-</div>
-</a>
-    </a>
-</div>
-     </a>
-     
-</section>
     </section>
-
 
     <!-- FOOTER -->
     <footer>
         © 2026 Jay Dev Joshi | All Rights Reserved
     </footer>
+
+    <!-- Nepali Date Converter library -->
+    <script src="https://cdn.jsdelivr.net/npm/nepali-date-converter/dist/nepali-date-converter.umd.js"></script>
+
+    <!-- DATE CONVERTER SCRIPT -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const tabs = document.querySelectorAll(".converter-tab");
+            const bsBox = document.getElementById("bs-input-box");
+            const adBox = document.getElementById("ad-input-box");
+            const bsInput = document.getElementById("bs-date");
+            const adInput = document.getElementById("ad-date");
+            const convertBtn = document.getElementById("convert-btn");
+            const convertedDate = document.getElementById("converted-date");
+            const convertedDetail = document.getElementById("converted-detail");
+
+            let mode = "bs-to-ad";
+
+            // Set today's AD date automatically
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            const mm = String(today.getMonth() + 1).padStart(2, "0");
+            const dd = String(today.getDate()).padStart(2, "0");
+            adInput.value = `${yyyy}-${mm}-${dd}`;
+
+            function showError(message) {
+                convertedDate.textContent = message;
+                convertedDate.classList.add("converter-error");
+                convertedDetail.textContent = "";
+            }
+
+            function showResult(main, detail) {
+                convertedDate.textContent = main;
+                convertedDetail.textContent = detail || "";
+                convertedDate.classList.remove("converter-error");
+            }
+
+            tabs.forEach(function (tab) {
+                tab.addEventListener("click", function () {
+
+                    mode = tab.dataset.mode;
+
+                    tabs.forEach(function (item) {
+                        item.classList.remove("active");
+                    });
+
+                    tab.classList.add("active");
+
+                    if (mode === "bs-to-ad") {
+                        bsBox.style.display = "block";
+                        adBox.style.display = "none";
+                        bsInput.focus();
+                    } else {
+                        bsBox.style.display = "none";
+                        adBox.style.display = "block";
+                        adInput.focus();
+                    }
+
+                    showResult("Enter a date above", "");
+                });
+            });
+
+            convertBtn.addEventListener("click", function () {
+
+                try {
+                    if (typeof NepaliDate === "undefined") {
+                        showError("Converter library not loaded.");
+                        return;
+                    }
+
+                    if (mode === "bs-to-ad") {
+
+                        const value = bsInput.value.trim();
+
+                        if (!/^\d{4}[-\/]\d{1,2}[-\/]\d{1,2}$/.test(value)) {
+                            showError("Use BS format: YYYY-MM-DD");
+                            return;
+                        }
+
+                        const bs = new NepaliDate(value.replaceAll("/", "-"));
+                        const ad = bs.getAD();
+
+                        const adText =
+                            ad.year + "-" +
+                            String(ad.month + 1).padStart(2, "0") + "-" +
+                            String(ad.date).padStart(2, "0");
+
+                        const weekday = bs.toJsDate().toLocaleDateString(
+                            "en-US",
+                            { weekday: "long" }
+                        );
+
+                        showResult(adText, "AD • " + weekday);
+
+                    } else {
+
+                        if (!adInput.value) {
+                            showError("Please select an AD date.");
+                            return;
+                        }
+
+                        const adDate = new Date(adInput.value + "T00:00:00");
+                        const bs = NepaliDate.fromAD(adDate);
+
+                        const bsText = bs.format("YYYY-MM-DD");
+
+                        showResult(bsText, "वि.सं. • Bikram Sambat");
+
+                    }
+
+                } catch (error) {
+                    console.error(error);
+                    showError("Invalid date. Please check the date.");
+                }
+            });
+
+            bsInput.addEventListener("keydown", function (event) {
+                if (event.key === "Enter") {
+                    convertBtn.click();
+                }
+            });
+
+        });
+    </script>
 
 </body>
 </html>
