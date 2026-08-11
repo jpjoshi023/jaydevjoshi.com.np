@@ -7,599 +7,267 @@
     <title>Jay Dev Joshi | Personal Website</title>
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
         html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background: #0f172a;
-            color: white;
-        }
-
-        /* NAVBAR */
-        nav {
-            min-height: 70px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 8%;
-            background: #020617;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .logo {
-            font-size: 25px;
-            font-weight: bold;
-            color: #38bdf8;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-            transition: 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: #38bdf8;
-        }
-
-        /* HERO */
-        .hero {
-            min-height: 90vh;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 60px;
-            padding: 60px 8%;
-        }
-
-        .hero-text {
-            max-width: 600px;
-        }
-
-        .hero-text h3 {
-            color: #38bdf8;
-            font-size: 22px;
-            margin-bottom: 15px;
-        }
-
-        .hero-text h1 {
-            font-size: 55px;
-            margin-bottom: 15px;
-        }
-
-        .hero-text h1 span {
-            color: #38bdf8;
-        }
-
-        .hero-text p {
-            color: #cbd5e1;
-            font-size: 18px;
-            line-height: 1.7;
-            margin-bottom: 30px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 13px 25px;
-            background: #38bdf8;
-            color: #020617;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: white;
-        }
-
-        /* RIGHT SIDE */
-        .hero-right {
-            width: 390px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 25px;
-        }
-
-        /* PROFILE */
-        .profile {
-            width: 230px;
-            height: 230px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #38bdf8, #6366f1);
-            padding: 6px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 0 50px rgba(56, 189, 248, 0.45);
-            overflow: hidden;
-        }
-
-        .profile img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* DATE CONVERTER */
-        .date-converter-card {
-            width: 100%;
-            padding: 22px;
-            border: 1px solid rgba(56, 189, 248, 0.25);
-            border-radius: 18px;
-            background: rgba(2, 6, 23, 0.9);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .date-converter-card h2 {
-            color: #38bdf8;
-            font-size: 22px;
-            margin-bottom: 5px;
-        }
-
-        .converter-subtitle {
-            color: #94a3b8;
-            font-size: 12px;
-            margin-bottom: 15px;
-        }
-
-        .converter-tabs {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6px;
-            padding: 4px;
-            background: #111c31;
-            border-radius: 9px;
-            margin-bottom: 15px;
-        }
-
-        .converter-tab {
-            border: 0;
-            padding: 9px;
-            border-radius: 7px;
-            background: transparent;
-            color: #cbd5e1;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .converter-tab.active {
-            background: #38bdf8;
-            color: #020617;
-        }
-
-        .converter-label {
-            display: block;
-            color: #e2e8f0;
-            font-size: 13px;
-            font-weight: bold;
-            margin-bottom: 7px;
-        }
-
-        .converter-input {
-            width: 100%;
-            padding: 11px;
-            border: 1px solid #334155;
-            border-radius: 8px;
-            outline: none;
-            background: #0b1220;
-            color: white;
-            font-size: 15px;
-            margin-bottom: 12px;
-        }
-
-        .converter-input:focus {
-            border-color: #38bdf8;
-        }
-
-        .converter-btn {
-            width: 100%;
-            border: 0;
-            border-radius: 8px;
-            padding: 11px;
-            background: linear-gradient(135deg, #38bdf8, #2563eb);
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .converter-result {
-            margin-top: 12px;
-            padding: 12px;
-            border-radius: 10px;
-            background: #111c31;
-            text-align: center;
-        }
-
-        .converter-result small {
-            display: block;
-            color: #94a3b8;
-            margin-bottom: 4px;
-        }
-
-        #converted-date {
-            color: #38bdf8;
-            font-size: 20px;
-            font-weight: bold;
-        }
-
-        #converted-detail {
-            display: block;
-            color: #cbd5e1;
-            font-size: 12px;
-            margin-top: 4px;
-        }
-
-        .converter-error {
-            color: #fda4af !important;
-        }
-
-
-        /* FILE CONVERTER */
-        .file-converter-section {
-            padding: 80px 8%;
-            background: #0f172a;
-            text-align: center;
-        }
-
-        .file-converter-section h2 {
-            color: #38bdf8;
-            font-size: 35px;
-            margin-bottom: 10px;
-        }
-
-        .file-converter-subtitle {
-            color: #94a3b8;
-            margin-bottom: 35px;
-        }
-
-        .file-converter-box {
-            max-width: 900px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 22px;
-        }
-
-        .file-tool {
-            background: #020617;
-            border: 1px solid rgba(56, 189, 248, 0.22);
-            border-radius: 18px;
-            padding: 28px;
-            text-align: left;
-        }
-
-        .file-tool h3 {
-            color: #fff;
-            margin-bottom: 8px;
-            font-size: 21px;
-        }
-
-        .file-tool p {
-            color: #94a3b8;
-            font-size: 13px;
-            line-height: 1.6;
-            margin-bottom: 18px;
-        }
-
-        .file-input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #334155;
-            border-radius: 9px;
-            background: #0b1220;
-            color: #cbd5e1;
-            margin-bottom: 12px;
-        }
-
-        .file-btn {
-            width: 100%;
-            border: 0;
-            padding: 12px;
-            border-radius: 9px;
-            background: linear-gradient(135deg, #38bdf8, #2563eb);
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .file-btn:disabled {
-            opacity: 0.55;
-            cursor: not-allowed;
-        }
-
-        .file-status {
-            min-height: 20px;
-            margin-top: 12px;
-            color: #94a3b8;
-            font-size: 13px;
-        }
-
-        .file-preview {
-            max-width: 100%;
-            max-height: 280px;
-            display: block;
-            margin: 12px auto;
-            border-radius: 8px;
-        }
-
-        .download-link {
-            display: inline-block;
-            margin-top: 10px;
-            color: #38bdf8;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        @media (max-width: 800px) {
-            .file-converter-box {
-                grid-template-columns: 1fr;
-            }
-        }
-
-
-        /* WORD ↔ PDF CONVERTER */
-        .word-pdf-section {
-            padding: 80px 8%;
-            background: #020617;
-            text-align: center;
-        }
-
-        .word-pdf-section h2 {
-            color: #38bdf8;
-            font-size: 35px;
-            margin-bottom: 10px;
-        }
-
-        .word-pdf-subtitle {
-            color: #94a3b8;
-            margin: 0 auto 35px;
-            max-width: 720px;
-            line-height: 1.6;
-        }
-
-        .word-pdf-box {
-            max-width: 900px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 22px;
-        }
-
-        .word-pdf-tool {
-            background: #0f172a;
-            border: 1px solid rgba(56, 189, 248, 0.22);
-            border-radius: 18px;
-            padding: 28px;
-            text-align: left;
-        }
-
-        .word-pdf-tool h3 {
-            color: white;
-            font-size: 21px;
-            margin-bottom: 8px;
-        }
-
-        .word-pdf-tool p {
-            color: #94a3b8;
-            font-size: 13px;
-            line-height: 1.65;
-            margin-bottom: 18px;
-        }
-
-        .word-pdf-input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #334155;
-            border-radius: 9px;
-            background: #0b1220;
-            color: #cbd5e1;
-            margin-bottom: 12px;
-        }
-
-        .word-pdf-btn {
-            width: 100%;
-            border: 0;
-            padding: 12px;
-            border-radius: 9px;
-            background: linear-gradient(135deg, #38bdf8, #2563eb);
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .word-pdf-btn:disabled {
-            opacity: 0.55;
-            cursor: not-allowed;
-        }
-
-        .word-pdf-status {
-            min-height: 20px;
-            margin-top: 12px;
-            color: #94a3b8;
-            font-size: 13px;
-            line-height: 1.5;
-        }
-
-        @media (max-width: 800px) {
-            .word-pdf-box {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* ABOUT */
-        .about {
-            padding: 80px 8%;
-            background: #020617;
-            text-align: center;
-        }
-
-        .about h2,
-        .skills h2,
-        .contact h2 {
-            font-size: 35px;
-            color: #38bdf8;
-            margin-bottom: 20px;
-        }
-
-        .about p {
-            max-width: 700px;
-            margin: auto;
-            color: #cbd5e1;
-            line-height: 1.8;
-        }
-
-        /* SKILLS */
-        .skills {
-            padding: 80px 8%;
-            text-align: center;
-        }
-
-        .skills h2 {
-            margin-bottom: 40px;
-        }
-
-        .skill-box {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .skill {
-            background: #1e293b;
-            padding: 25px 40px;
-            border-radius: 10px;
-            color: white;
-            font-size: 18px;
-            transition: 0.3s;
-        }
-
-        .skill:hover {
-            background: #38bdf8;
-            color: #020617;
-        }
-
-        /* CONTACT */
-        .contact {
-            padding: 80px 8%;
-            background: #020617;
-            text-align: center;
-        }
-
-        .contact h2 {
-            color: #f1f5f8;
-        }
-
-        .contact p {
-            color: #f7fafc;
-            margin-bottom: 18px;
-        }
-
-        .contact a {
-            color: #38bdf8;
-            text-decoration: none;
-        }
-
-        /* SOCIAL */
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 30px 0;
-        }
-
-        .social-links a {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            font-size: 24px;
-            transition: 0.3s;
-        }
-
-        .social-links a:hover {
-            transform: translateY(-5px);
-        }
-
-        .facebook { background: #1877F2; }
-        .instagram { background: #E4405F; }
-        .tiktok { background: #000; }
-        .whatsapp { background: #25D366; }
-        .youtube { background: #FF0000; }
-
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #020617;
-            color: #64748b;
-        }
-
-        /* MOBILE */
-        @media (max-width: 850px) {
-            nav {
-                padding: 15px 5%;
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            nav ul {
-                gap: 15px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .hero {
-                flex-direction: column;
-                text-align: center;
-                gap: 40px;
-                padding: 50px 5%;
-            }
-
-            .hero-text h1 {
-                font-size: 40px;
-            }
-
-            .hero-right {
-                width: min(100%, 390px);
-            }
-        }
-
-        @media (max-width: 500px) {
-            .profile {
-                width: 190px;
-                height: 190px;
-            }
-
-            .date-converter-card {
-                padding: 18px;
-            }
-        }
+    scroll-behavior: smooth;
+}
+
+/* Glass Effect - Cards */
+.date-converter-card,
+.file-tool,
+.word-pdf-tool {
+    background: rgba(23, 32, 51, 0.72);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(56, 189, 248, 0.18);
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+/* Card Hover */
+.date-converter-card:hover,
+.file-tool:hover,
+.word-pdf-tool:hover {
+    transform: translateY(-8px);
+    border-color: rgba(56, 189, 248, 0.55);
+
+    box-shadow:
+        0 22px 55px rgba(0, 0, 0, 0.42),
+        0 0 25px rgba(56, 189, 248, 0.12);
+}
+
+
+/* =========================================
+   🔘 BUTTON ANIMATION
+   ========================================= */
+
+.btn,
+.converter-btn,
+.file-btn,
+.word-pdf-btn {
+    position: relative;
+    overflow: hidden;
+
+    background: linear-gradient(
+        135deg,
+        #38BDF8,
+        #2563EB
+    );
+
+    color: #ffffff;
+
+    box-shadow:
+        0 8px 20px rgba(37, 99, 235, 0.28);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
+}
+
+/* Button Hover */
+.btn:hover,
+.converter-btn:hover,
+.file-btn:hover,
+.word-pdf-btn:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.08);
+
+    box-shadow:
+        0 12px 28px rgba(37, 99, 235, 0.45),
+        0 0 20px rgba(56, 189, 248, 0.25);
+}
+
+/* Button Click */
+.btn:active,
+.converter-btn:active,
+.file-btn:active,
+.word-pdf-btn:active {
+    transform: translateY(1px) scale(0.98);
+}
+
+
+/* =========================================
+   💫 BUTTON LIGHT EFFECT
+   ========================================= */
+
+.btn::before,
+.converter-btn::before,
+.file-btn::before,
+.word-pdf-btn::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: -120%;
+
+    width: 70%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.35),
+        transparent
+    );
+
+    transform: skewX(-20deg);
+
+    transition: left 0.6s ease;
+}
+
+.btn:hover::before,
+.converter-btn:hover::before,
+.file-btn:hover::before,
+.word-pdf-btn:hover::before {
+    left: 140%;
+}
+
+
+/* =========================================
+   🖼️ PROFILE PHOTO GLOW
+   ========================================= */
+
+.profile {
+    position: relative;
+
+    background: linear-gradient(
+        135deg,
+        #38BDF8,
+        #2563EB,
+        #6366F1
+    );
+
+    box-shadow:
+        0 0 25px rgba(56, 189, 248, 0.45),
+        0 0 55px rgba(37, 99, 235, 0.28);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+/* Profile Hover */
+.profile:hover {
+    transform: scale(1.04);
+
+    box-shadow:
+        0 0 30px rgba(56, 189, 248, 0.65),
+        0 0 70px rgba(37, 99, 235, 0.45);
+}
+
+/* Profile Image */
+.profile img {
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease;
+}
+
+.profile:hover img {
+    transform: scale(1.05);
+}
+
+
+/* =========================================
+   🧊 GLASS NAVBAR
+   ========================================= */
+
+nav {
+    background: rgba(2, 6, 23, 0.78);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid rgba(56, 189, 248, 0.12);
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.20);
+}
+
+
+/* =========================================
+   🧠 SKILL CARDS
+   ========================================= */
+
+.skill {
+    background: rgba(30, 41, 59, 0.70);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(56, 189, 248, 0.12);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+.skill:hover {
+    transform: translateY(-7px) scale(1.03);
+
+    background: rgba(56, 189, 248, 0.12);
+
+    color: #38BDF8;
+
+    border-color: rgba(56, 189, 248, 0.45);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.30),
+        0 0 18px rgba(56, 189, 248, 0.15);
+}
+
+
+/* =========================================
+   🌟 HERO TEXT EFFECT
+   ========================================= */
+
+.hero-text h1 span {
+    text-shadow:
+        0 0 12px rgba(56, 189, 248, 0.30),
+        0 0 30px rgba(56, 189, 248, 0.12);
+}
+
+
+/* =========================================
+   🔗 SOCIAL ICON HOVER
+   ========================================= */
+
+.social-links a {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-6px) scale(1.08);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================
+   📱 MOBILE OPTIMIZATION
+   ========================================= */
+
+@media (max-width: 850px) {
+
+    .date-converter-card:hover,
+    .file-tool:hover,
+    .word-pdf-tool:hover {
+        transform: translateY(-4px);
+    }
+
+    .profile:hover {
+        transform: scale(1.02);
+    }
+}
     </style>
 </head>
 
