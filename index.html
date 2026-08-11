@@ -1,1314 +1,2163 @@
+
+
+01f435ac-e98d-4649-a0b0-e9c1056ef8f5.png
+ yo ma image file add kasari garna sakinx
+
+46c367d5-28b3-432c-9aac-09ab3a407566.png
+
+हो, यदि तपाईंको उद्देश्य images/profile.jpg राख्ने हो भने सही path यही हो:
+
+images/profile.jpg
+GitHub मा photo upload गर्दा images folder भित्र profile.jpg राख्नुहोस्।
+
+अनि index.html मा:
+
+<img src="images/profile.jpg" alt="My Photo" class="profile-photo">
+⚠️ imagesprofile.jpg होइन — बीचमा / हुनुपर्छ।
+
+❌ imagesprofile.jpg
+✅ images/profile.jpg
+तपाईं चाहनुहुन्छ भने अब तपाईंको GitHub मा images/profile.jpg कसरी upload गर्ने भनेर म अर्को step बताउँछु।
+
+
+9bfad877-1075-4413-bb26-d9f05fa25b60.png
+
+हो 👍 अब तपाईंले सही गर्नुभयो।
+
+Screenshot मा स्पष्ट देखिन्छ:
+
+profile.jpg → images/profile.jpg
+र बायाँतिर:
+
+images
+└── profile.jpg
+यसको अर्थ तपाईंको फोटो अहिले images/profile.jpg मा पुगेको छ। ✅
+
+अब अन्तिम काम
+तपाईंको index.html मा यो हुनुपर्छ:
+
+<img src="images/profile.jpg" alt="My Photo" class="profile-photo">
+यदि यो code पहिल्यै राखिएको छ भने अब केही परिवर्तन गर्नुपर्दैन।
+
+अब website हेर्नुहोस्
+तपाईंको website खोल्नुहोस् र Ctrl + F5 थिचेर refresh गर्नुहोस्।
+
+यदि फोटो अझै देखिएन भने, तपाईंको index.html को screenshot पठाउनुहोस्। म त्यहीँबाट कुन code मिलाउनुपर्छ भनेर देखाइदिन्छु।
+
+
+
+Pasted text.txt
+Document
+
+हो, मैले तपाईंको index.html हेरेँ। समस्या भेटियो। 👍
+
+तपाईंको GitHub मा फोटो अहिले:
+
+images/profile.jpg
+मा छ। तर index.html मा अझै पुरानो नाम:
+
+<img src="myphoto.jpg" alt="Jay Dev Joshi">
+राखिएको छ। 
+
+
+✅ यसलाई यस्तो बनाउनुहोस्
+index.html को यो line:
+
+<img src="myphoto.jpg" alt="Jay Dev Joshi">
+हटाएर:
+
+<img src="images/profile.jpg" alt="Jay Dev Joshi">
+राख्नुहोस्।
+
+GitHub मा गर्ने तरिका
+index.html खोल्नुहोस्।
+
+✏️ Edit button थिच्नुहोस्।
+
+myphoto.jpg खोज्नुहोस्।
+
+त्यसलाई images/profile.jpg बनाउनुहोस्।
+
+माथि/तल Commit changes थिच्नुहोस्।
+
+आफ्नो website खोल्नुहोस्।
+
+Ctrl + F5 गरेर hard refresh गर्नुहोस्।
+
+त्यसपछि तपाईंको profile photo देखिनुपर्छ। 🖼️
+
+तपाईंको CSS भने पहिल्यै ठीक छ—profile img मा image लाई गोलो बनाउने र object-fit: cover गर्ने व्यवस्था छ। 
+
+
+त्यसैले अहिले केवल एउटा line परिवर्तन गरे पुग्छ।
+
+
+ff6981c7-6d59-4dac-a813-2622e7c38d75.png
+
+हो 👍 अब एकदम सही भएको छ।
+
+तपाईंको screenshot मा line 642 मा:
+
+<img src="images/profile.jpg" alt="Jay Dev Joshi">
+देखिएको छ। ✅
+
+र बायाँपट्टि पनि:
+
+images
+└── profile.jpg
+छ। त्यसैले HTML र image path दुवै मिलेको छ।
+
+अब के गर्ने?
+माथि Raw नथिच्नुहोस्।
+
+आफ्नो website खोल्नुहोस्:
+jaydevjoshi.com.np
+
+Ctrl + F5 थिचेर refresh गर्नुहोस्।
+
+Profile photo अब देखिनुपर्छ। 🖼️
+
+यदि photo अझै पनि नदेखिएमा, मलाई website खुलेको screenshot पठाउनुहोस्। त्यसपछि म किन नदेखिएको हो ठ्याक्कै जाँचेर अर्को step बताइदिन्छु।
+
+
+ef6f64ba-9d64-4c62-bca2-54dc68befece.png
+
+पक्कै 👍 तपाईंको website को background colour सजिलै change गर्न सकिन्छ।
+
+अहिलेको dark background हटाएर तपाईंलाई मन परेको रंग राख्न CSS मा body खोज्नुहोस्।
+
+उदाहरण:
+
+body {
+    background: #f5f7fa;
+    color: #222;
+}
+🎨 केही राम्रो विकल्प
+1. Light professional
+
+background: #f5f7fa;
+2. White
+
+background: #ffffff;
+3. हल्का blue
+
+background: #eef6ff;
+4. Dark blue
+
+background: #0b1220;
+5. Gradient
+
+background: linear-gradient(135deg, #0f172a, #1e3a8a);
+तपाईंको अहिलेको website हेर्दा हल्का professional background राख्दा अझ राम्रो देखिन्छ।
+
+यदि तपाईं चाहनुहुन्छ भने म तपाईंको अहिलेको design अनुसार background, cards, buttons र text सबै मिलाएर एउटा professional colour combination दिन्छु।
+
+
+मलाई मेरो design अनुसार background, cards, buttons र text सबै मिलाएर एउटा professional colour combination दिनुहोस्
+
+पक्कै 👍 तपाईंको अहिलेको dark-blue + cyan design लाई आधार मानेर म Professional Modern Blue colour combination सिफारिस गर्छु। तपाईंको existing CSS हेर्दा #0f172a, #020617, #38bdf8 जस्ता रंगहरू प्रयोग भएका छन्। 
+
+
+🎨 Recommended Colour Combination
+भाग	रंग
+Main Background	#0B1120
+Section Background	#111827
+Cards	#172033
+Card Border	#334155
+Primary Blue	#38BDF8
+Button Blue	#2563EB
+Main Text	#F8FAFC
+Secondary Text	#CBD5E1
+Muted Text	#94A3B8
+Hover	#60A5FA
+यसले तपाईंको website लाई clean, premium र professional portfolio जस्तो देखाउँछ।
+
+🔧 CSS मा के परिवर्तन गर्ने?
+तपाईंको <style> भित्र अन्तिमतिर, </style> भन्दा ठीक अगाडि यो code राख्नुहोस्:
+
+/* ===== PROFESSIONAL COLOR THEME ===== */
+
+body {
+    background: #0B1120;
+    color: #F8FAFC;
+}
+
+/* Navbar */
+nav {
+    background: #070D1A;
+    border-bottom: 1px solid #1E293B;
+}
+
+/* Logo */
+.logo {
+    color: #38BDF8;
+}
+
+/* Navigation */
+nav ul li a {
+    color: #E2E8F0;
+}
+
+nav ul li a:hover {
+    color: #60A5FA;
+}
+
+/* Hero text */
+.hero-text h3 {
+    color: #38BDF8;
+}
+
+.hero-text h1 span {
+    color: #38BDF8;
+}
+
+.hero-text p {
+    color: #CBD5E1;
+}
+
+/* Main Buttons */
+.btn {
+    background: linear-gradient(135deg, #38BDF8, #2563EB);
+    color: #FFFFFF;
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #60A5FA, #3B82F6);
+}
+
+/* Profile */
+.profile {
+    background: linear-gradient(135deg, #38BDF8, #2563EB);
+    box-shadow: 0 0 45px rgba(56, 189, 248, 0.35);
+}
+
+/* Converter Cards */
+.date-converter-card,
+.file-tool,
+.word-pdf-tool {
+    background: #172033;
+    border: 1px solid #334155;
+}
+
+/* Section backgrounds */
+.file-converter-section {
+    background: #0B1120;
+}
+
+.word-pdf-section,
+.about,
+.contact {
+    background: #0F172A;
+}
+
+/* Section headings */
+.file-converter-section h2,
+.word-pdf-section h2,
+.about h2,
+.skills h2,
+.contact h2 {
+    color: #38BDF8;
+}
+
+/* Normal text */
+.file-converter-subtitle,
+.word-pdf-subtitle,
+.file-tool p,
+.word-pdf-tool p {
+    color: #94A3B8;
+}
+
+/* Inputs */
+.converter-input,
+.file-input,
+.word-pdf-input {
+    background: #0B1120;
+    color: #F8FAFC;
+    border: 1px solid #334155;
+}
+
+.converter-input:focus,
+.file-input:focus,
+.word-pdf-input:focus {
+    border-color: #38BDF8;
+}
+
+/* Converter buttons */
+.converter-btn,
+.file-btn,
+.word-pdf-btn {
+    background: linear-gradient(135deg, #38BDF8, #2563EB);
+    color: #FFFFFF;
+}
+
+.converter-btn:hover,
+.file-btn:hover,
+.word-pdf-btn:hover {
+    background: linear-gradient(135deg, #60A5FA, #3B82F6);
+}
+
+/* Converter result */
+.converter-result {
+    background: #111827;
+    border: 1px solid #334155;
+}
+
+#converted-date {
+    color: #38BDF8;
+}
+
+/* Skills */
+.skill {
+    background: #172033;
+    border: 1px solid #334155;
+    color: #F8FAFC;
+}
+
+.skill:hover {
+    background: #38BDF8;
+    color: #0B1120;
+}
+
+/* Contact */
+.contact p {
+    color: #CBD5E1;
+}
+
+.contact a {
+    color: #38BDF8;
+}
+
+.contact a:hover {
+    color: #60A5FA;
+}
+
+/* Footer */
+footer {
+    background: #070D1A;
+    color: #64748B;
+    border-top: 1px solid #1E293B;
+}
+⭐ मेरो सुझाव
+तपाईंको JP Joshi personal website का लागि यही theme राम्रो हुन्छ:
+
+Dark Navy + Sky Blue + Royal Blue
+
+यसले अहिलेको design लाई पूर्ण रूपमा बदल्दैन; बरु अहिलेको design लाई नै professional/premium look दिन्छ।
+
+यदि तपाईं चाहनुहुन्छ भने अर्को step मा म तपाईंको यही website लाई अझ attractive बनाउन glass effect + card hover + button animation + profile photo glow समेत मिलाउने CSS दिन सक्छु।
+
+
+तपाईंको यही website लाई अझ attractive बनाउन glass effect, card hover, button animation, र profile photo glow समेत मिलाउने CSS दिनुहोस्
+
+अवश्य 👍 तपाईंको अहिलेको Dark Navy + Cyan/Blue design लाई नबिगारी अझ premium बनाउन यो CSS राम्रो हुन्छ। तपाईंको existing .profile, .file-tool, .word-pdf-tool, .btn आदि classes नै प्रयोग भएकाले नयाँ HTML थप्नुपर्दैन। 
+
+
+✨ यी effects थप्नुहोस्
+index.html खोल्नुहोस् → <style> को एकदम तल, </style> भन्दा ठीक अगाडि यो CSS paste गर्नुहोस्:
+
+/* =========================================
+   ✨ PREMIUM GLASS + HOVER EFFECTS
+   ========================================= */
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Glass Effect - Cards */
+.date-converter-card,
+.file-tool,
+.word-pdf-tool {
+    background: rgba(23, 32, 51, 0.72);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(56, 189, 248, 0.18);
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+/* Card Hover */
+.date-converter-card:hover,
+.file-tool:hover,
+.word-pdf-tool:hover {
+    transform: translateY(-8px);
+    border-color: rgba(56, 189, 248, 0.55);
+
+    box-shadow:
+        0 22px 55px rgba(0, 0, 0, 0.42),
+        0 0 25px rgba(56, 189, 248, 0.12);
+}
+
+
+/* =========================================
+   🔘 BUTTON ANIMATION
+   ========================================= */
+
+.btn,
+.converter-btn,
+.file-btn,
+.word-pdf-btn {
+    position: relative;
+    overflow: hidden;
+
+    background: linear-gradient(
+        135deg,
+        #38BDF8,
+        #2563EB
+    );
+
+    color: #ffffff;
+
+    box-shadow:
+        0 8px 20px rgba(37, 99, 235, 0.28);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
+}
+
+/* Button Hover */
+.btn:hover,
+.converter-btn:hover,
+.file-btn:hover,
+.word-pdf-btn:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.08);
+
+    box-shadow:
+        0 12px 28px rgba(37, 99, 235, 0.45),
+        0 0 20px rgba(56, 189, 248, 0.25);
+}
+
+/* Button Click */
+.btn:active,
+.converter-btn:active,
+.file-btn:active,
+.word-pdf-btn:active {
+    transform: translateY(1px) scale(0.98);
+}
+
+
+/* =========================================
+   💫 BUTTON LIGHT EFFECT
+   ========================================= */
+
+.btn::before,
+.converter-btn::before,
+.file-btn::before,
+.word-pdf-btn::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: -120%;
+
+    width: 70%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.35),
+        transparent
+    );
+
+    transform: skewX(-20deg);
+
+    transition: left 0.6s ease;
+}
+
+.btn:hover::before,
+.converter-btn:hover::before,
+.file-btn:hover::before,
+.word-pdf-btn:hover::before {
+    left: 140%;
+}
+
+
+/* =========================================
+   🖼️ PROFILE PHOTO GLOW
+   ========================================= */
+
+.profile {
+    position: relative;
+
+    background: linear-gradient(
+        135deg,
+        #38BDF8,
+        #2563EB,
+        #6366F1
+    );
+
+    box-shadow:
+        0 0 25px rgba(56, 189, 248, 0.45),
+        0 0 55px rgba(37, 99, 235, 0.28);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+/* Profile Hover */
+.profile:hover {
+    transform: scale(1.04);
+
+    box-shadow:
+        0 0 30px rgba(56, 189, 248, 0.65),
+        0 0 70px rgba(37, 99, 235, 0.45);
+}
+
+/* Profile Image */
+.profile img {
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease;
+}
+
+.profile:hover img {
+    transform: scale(1.05);
+}
+
+
+/* =========================================
+   🧊 GLASS NAVBAR
+   ========================================= */
+
+nav {
+    background: rgba(2, 6, 23, 0.78);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid rgba(56, 189, 248, 0.12);
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.20);
+}
+
+
+/* =========================================
+   🧠 SKILL CARDS
+   ========================================= */
+
+.skill {
+    background: rgba(30, 41, 59, 0.70);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(56, 189, 248, 0.12);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+.skill:hover {
+    transform: translateY(-7px) scale(1.03);
+
+    background: rgba(56, 189, 248, 0.12);
+
+    color: #38BDF8;
+
+    border-color: rgba(56, 189, 248, 0.45);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.30),
+        0 0 18px rgba(56, 189, 248, 0.15);
+}
+
+
+/* =========================================
+   🌟 HERO TEXT EFFECT
+   ========================================= */
+
+.hero-text h1 span {
+    text-shadow:
+        0 0 12px rgba(56, 189, 248, 0.30),
+        0 0 30px rgba(56, 189, 248, 0.12);
+}
+
+
+/* =========================================
+   🔗 SOCIAL ICON HOVER
+   ========================================= */
+
+.social-links a {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-6px) scale(1.08);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================
+   📱 MOBILE OPTIMIZATION
+   ========================================= */
+
+@media (max-width: 850px) {
+
+    .date-converter-card:hover,
+    .file-tool:hover,
+    .word-pdf-tool:hover {
+        transform: translateY(-4px);
+    }
+
+    .profile:hover {
+        transform: scale(1.02);
+    }
+}
+📌 कहाँ राख्ने?
+तपाईंको code मा अहिले:
+
+    </style>
+</head>
+छ। 
+
+
+त्यसैले </style> भन्दा ठीक अगाडि माथिको पूरा CSS paste गर्नुहोस्।
+
+त्यसपछि:
+
+Commit changes → Website खोल्नुहोस् → Ctrl + F5
+
+गर्नुहोस्।
+
+अब तपाईंको website मा:
+
+✨ Glass cards
+💫 Card hover उठ्ने effect
+🔘 Animated buttons
+💡 Button light sweep
+🖼️ Profile photo glow
+🔵 Profile hover zoom
+🧊 Glass navbar
+⭐ Skills hover animation
+🔗 Social icon animation
+
+आउँछ।
+
+महत्त्वपूर्ण: यो CSS ले तपाईंको converter को JavaScript परिवर्तन गर्दैन, त्यसैले Date/JPG/PDF/Word converter को existing code यथावत् रहन्छ।
+
+yo lai puranai folder ma 
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Jay Dev Joshi | Personal Website</title>
+<html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-     * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
+<title>Jay Dev Joshi | Personal Website</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background: #0f172a;
+        color: white;
+    }
+
+    /* NAVBAR */
+    nav {
+        min-height: 70px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 8%;
+        background: #020617;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .logo {
+        font-size: 25px;
+        font-weight: bold;
+        color: #38bdf8;
+    }
+
+    nav ul {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+    }
+
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+        color: #38bdf8;
+    }
+
+    /* HERO */
+    .hero {
+        min-height: 90vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 60px;
+        padding: 60px 8%;
+    }
+
+    .hero-text {
+        max-width: 600px;
+    }
+
+    .hero-text h3 {
+        color: #38bdf8;
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+
+    .hero-text h1 {
+        font-size: 55px;
+        margin-bottom: 15px;
+    }
+
+    .hero-text h1 span {
+        color: #38bdf8;
+    }
+
+    .hero-text p {
+        color: #cbd5e1;
+        font-size: 18px;
+        line-height: 1.7;
+        margin-bottom: 30px;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 13px 25px;
+        background: #38bdf8;
+        color: #020617;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        background: white;
+    }
+
+    /* RIGHT SIDE */
+    .hero-right {
+        width: 390px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+
+    /* PROFILE */
+    .profile {
+        width: 230px;
+        height: 230px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #38bdf8, #6366f1);
+        padding: 6px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 0 50px rgba(56, 189, 248, 0.45);
+        overflow: hidden;
+    }
+
+    .profile img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        display: block;
+    }
+
+    /* DATE CONVERTER */
+    .date-converter-card {
+        width: 100%;
+        padding: 22px;
+        border: 1px solid rgba(56, 189, 248, 0.25);
+        border-radius: 18px;
+        background: rgba(2, 6, 23, 0.9);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .date-converter-card h2 {
+        color: #38bdf8;
+        font-size: 22px;
+        margin-bottom: 5px;
+    }
+
+    .converter-subtitle {
+        color: #94a3b8;
+        font-size: 12px;
+        margin-bottom: 15px;
+    }
+
+    .converter-tabs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+        padding: 4px;
+        background: #111c31;
+        border-radius: 9px;
+        margin-bottom: 15px;
+    }
+
+    .converter-tab {
+        border: 0;
+        padding: 9px;
+        border-radius: 7px;
+        background: transparent;
+        color: #cbd5e1;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .converter-tab.active {
+        background: #38bdf8;
+        color: #020617;
+    }
+
+    .converter-label {
+        display: block;
+        color: #e2e8f0;
+        font-size: 13px;
+        font-weight: bold;
+        margin-bottom: 7px;
+    }
+
+    .converter-input {
+        width: 100%;
+        padding: 11px;
+        border: 1px solid #334155;
+        border-radius: 8px;
+        outline: none;
+        background: #0b1220;
+        color: white;
+        font-size: 15px;
+        margin-bottom: 12px;
+    }
+
+    .converter-input:focus {
+        border-color: #38bdf8;
+    }
+
+    .converter-btn {
+        width: 100%;
+        border: 0;
+        border-radius: 8px;
+        padding: 11px;
+        background: linear-gradient(135deg, #38bdf8, #2563eb);
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .converter-result {
+        margin-top: 12px;
+        padding: 12px;
+        border-radius: 10px;
+        background: #111c31;
+        text-align: center;
+    }
+
+    .converter-result small {
+        display: block;
+        color: #94a3b8;
+        margin-bottom: 4px;
+    }
+
+    #converted-date {
+        color: #38bdf8;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    #converted-detail {
+        display: block;
+        color: #cbd5e1;
+        font-size: 12px;
+        margin-top: 4px;
+    }
+
+    .converter-error {
+        color: #fda4af !important;
+    }
+
+
+    /* FILE CONVERTER */
+    .file-converter-section {
+        padding: 80px 8%;
+        background: #0f172a;
+        text-align: center;
+    }
+
+    .file-converter-section h2 {
+        color: #38bdf8;
+        font-size: 35px;
+        margin-bottom: 10px;
+    }
+
+    .file-converter-subtitle {
+        color: #94a3b8;
+        margin-bottom: 35px;
+    }
+
+    .file-converter-box {
+        max-width: 900px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+    }
+
+    .file-tool {
+        background: #020617;
+        border: 1px solid rgba(56, 189, 248, 0.22);
+        border-radius: 18px;
+        padding: 28px;
+        text-align: left;
+    }
+
+    .file-tool h3 {
+        color: #fff;
+        margin-bottom: 8px;
+        font-size: 21px;
+    }
+
+    .file-tool p {
+        color: #94a3b8;
+        font-size: 13px;
+        line-height: 1.6;
+        margin-bottom: 18px;
+    }
+
+    .file-input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #334155;
+        border-radius: 9px;
+        background: #0b1220;
+        color: #cbd5e1;
+        margin-bottom: 12px;
+    }
+
+    .file-btn {
+        width: 100%;
+        border: 0;
+        padding: 12px;
+        border-radius: 9px;
+        background: linear-gradient(135deg, #38bdf8, #2563eb);
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .file-btn:disabled {
+        opacity: 0.55;
+        cursor: not-allowed;
+    }
+
+    .file-status {
+        min-height: 20px;
+        margin-top: 12px;
+        color: #94a3b8;
+        font-size: 13px;
+    }
+
+    .file-preview {
+        max-width: 100%;
+        max-height: 280px;
+        display: block;
+        margin: 12px auto;
+        border-radius: 8px;
+    }
+
+    .download-link {
+        display: inline-block;
+        margin-top: 10px;
+        color: #38bdf8;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    @media (max-width: 800px) {
+        .file-converter-box {
+            grid-template-columns: 1fr;
         }
+    }
 
-        html {
-            scroll-behavior: smooth;
+
+    /* WORD ↔ PDF CONVERTER */
+    .word-pdf-section {
+        padding: 80px 8%;
+        background: #020617;
+        text-align: center;
+    }
+
+    .word-pdf-section h2 {
+        color: #38bdf8;
+        font-size: 35px;
+        margin-bottom: 10px;
+    }
+
+    .word-pdf-subtitle {
+        color: #94a3b8;
+        margin: 0 auto 35px;
+        max-width: 720px;
+        line-height: 1.6;
+    }
+
+    .word-pdf-box {
+        max-width: 900px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+    }
+
+    .word-pdf-tool {
+        background: #0f172a;
+        border: 1px solid rgba(56, 189, 248, 0.22);
+        border-radius: 18px;
+        padding: 28px;
+        text-align: left;
+    }
+
+    .word-pdf-tool h3 {
+        color: white;
+        font-size: 21px;
+        margin-bottom: 8px;
+    }
+
+    .word-pdf-tool p {
+        color: #94a3b8;
+        font-size: 13px;
+        line-height: 1.65;
+        margin-bottom: 18px;
+    }
+
+    .word-pdf-input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #334155;
+        border-radius: 9px;
+        background: #0b1220;
+        color: #cbd5e1;
+        margin-bottom: 12px;
+    }
+
+    .word-pdf-btn {
+        width: 100%;
+        border: 0;
+        padding: 12px;
+        border-radius: 9px;
+        background: linear-gradient(135deg, #38bdf8, #2563eb);
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .word-pdf-btn:disabled {
+        opacity: 0.55;
+        cursor: not-allowed;
+    }
+
+    .word-pdf-status {
+        min-height: 20px;
+        margin-top: 12px;
+        color: #94a3b8;
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    @media (max-width: 800px) {
+        .word-pdf-box {
+            grid-template-columns: 1fr;
         }
+    }
 
-        body {
-            background: #0f172a;
-            color: white;
-        }
+    /* ABOUT */
+    .about {
+        padding: 80px 8%;
+        background: #020617;
+        text-align: center;
+    }
 
-        /* NAVBAR */
+    .about h2,
+    .skills h2,
+    .contact h2 {
+        font-size: 35px;
+        color: #38bdf8;
+        margin-bottom: 20px;
+    }
+
+    .about p {
+        max-width: 700px;
+        margin: auto;
+        color: #cbd5e1;
+        line-height: 1.8;
+    }
+
+    /* SKILLS */
+    .skills {
+        padding: 80px 8%;
+        text-align: center;
+    }
+
+    .skills h2 {
+        margin-bottom: 40px;
+    }
+
+    .skill-box {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .skill {
+        background: #1e293b;
+        padding: 25px 40px;
+        border-radius: 10px;
+        color: white;
+        font-size: 18px;
+        transition: 0.3s;
+    }
+
+    .skill:hover {
+        background: #38bdf8;
+        color: #020617;
+    }
+
+    /* CONTACT */
+    .contact {
+        padding: 80px 8%;
+        background: #020617;
+        text-align: center;
+    }
+
+    .contact h2 {
+        color: #f1f5f8;
+    }
+
+    .contact p {
+        color: #f7fafc;
+        margin-bottom: 18px;
+    }
+
+    .contact a {
+        color: #38bdf8;
+        text-decoration: none;
+    }
+
+    /* SOCIAL */
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin: 30px 0;
+    }
+
+    .social-links a {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        font-size: 24px;
+        transition: 0.3s;
+    }
+
+    .social-links a:hover {
+        transform: translateY(-5px);
+    }
+
+    .facebook { background: #1877F2; }
+    .instagram { background: #E4405F; }
+    .tiktok { background: #000; }
+    .whatsapp { background: #25D366; }
+    .youtube { background: #FF0000; }
+
+    /* FOOTER */
+    footer {
+        text-align: center;
+        padding: 20px;
+        background: #020617;
+        color: #64748b;
+    }
+
+    /* MOBILE */
+    @media (max-width: 850px) {
         nav {
-            min-height: 70px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 8%;
-            background: #020617;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .logo {
-            font-size: 25px;
-            font-weight: bold;
-            color: #38bdf8;
+            padding: 15px 5%;
+            flex-direction: column;
+            gap: 15px;
         }
 
         nav ul {
-            display: flex;
-            list-style: none;
-            gap: 30px;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-            transition: 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: #38bdf8;
-        }
-
-        /* HERO */
         .hero {
-            min-height: 90vh;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 60px;
-            padding: 60px 8%;
-        }
-
-        .hero-text {
-            max-width: 600px;
-        }
-
-        .hero-text h3 {
-            color: #38bdf8;
-            font-size: 22px;
-            margin-bottom: 15px;
+            flex-direction: column;
+            text-align: center;
+            gap: 40px;
+            padding: 50px 5%;
         }
 
         .hero-text h1 {
-            font-size: 55px;
-            margin-bottom: 15px;
+            font-size: 40px;
         }
 
-        .hero-text h1 span {
-            color: #38bdf8;
-        }
-
-        .hero-text p {
-            color: #cbd5e1;
-            font-size: 18px;
-            line-height: 1.7;
-            margin-bottom: 30px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 13px 25px;
-            background: #38bdf8;
-            color: #020617;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: white;
-        }
-
-        /* RIGHT SIDE */
         .hero-right {
-            width: 390px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 25px;
+            width: min(100%, 390px);
         }
+    }
 
-        /* PROFILE */
+    @media (max-width: 500px) {
         .profile {
-            width: 230px;
-            height: 230px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #38bdf8, #6366f1);
-            padding: 6px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 0 50px rgba(56, 189, 248, 0.45);
-            overflow: hidden;
+            width: 190px;
+            height: 190px;
         }
 
-        .profile img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* DATE CONVERTER */
         .date-converter-card {
-            width: 100%;
-            padding: 22px;
-            border: 1px solid rgba(56, 189, 248, 0.25);
-            border-radius: 18px;
-            background: rgba(2, 6, 23, 0.9);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            padding: 18px;
         }
-
-        .date-converter-card h2 {
-            color: #38bdf8;
-            font-size: 22px;
-            margin-bottom: 5px;
-        }
-
-        .converter-subtitle {
-            color: #94a3b8;
-            font-size: 12px;
-            margin-bottom: 15px;
-        }
-
-        .converter-tabs {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6px;
-            padding: 4px;
-            background: #111c31;
-            border-radius: 9px;
-            margin-bottom: 15px;
-        }
-
-        .converter-tab {
-            border: 0;
-            padding: 9px;
-            border-radius: 7px;
-            background: transparent;
-            color: #cbd5e1;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .converter-tab.active {
-            background: #38bdf8;
-            color: #020617;
-        }
-
-        .converter-label {
-            display: block;
-            color: #e2e8f0;
-            font-size: 13px;
-            font-weight: bold;
-            margin-bottom: 7px;
-        }
-
-        .converter-input {
-            width: 100%;
-            padding: 11px;
-            border: 1px solid #334155;
-            border-radius: 8px;
-            outline: none;
-            background: #0b1220;
-            color: white;
-            font-size: 15px;
-            margin-bottom: 12px;
-        }
-
-        .converter-input:focus {
-            border-color: #38bdf8;
-        }
-
-        .converter-btn {
-            width: 100%;
-            border: 0;
-            border-radius: 8px;
-            padding: 11px;
-            background: linear-gradient(135deg, #38bdf8, #2563eb);
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .converter-result {
-            margin-top: 12px;
-            padding: 12px;
-            border-radius: 10px;
-            background: #111c31;
-            text-align: center;
-        }
-
-        .converter-result small {
-            display: block;
-            color: #94a3b8;
-            margin-bottom: 4px;
-        }
-
-        #converted-date {
-            color: #38bdf8;
-            font-size: 20px;
-            font-weight: bold;
-        }
-
-        #converted-detail {
-            display: block;
-            color: #cbd5e1;
-            font-size: 12px;
-            margin-top: 4px;
-        }
-
-        .converter-error {
-            color: #fda4af !important;
-        }
-
-        /* ABOUT */
-        .about {
-            padding: 80px 8%;
-            background: #020617;
-            text-align: center;
-        }
-
-        .about h2,
-        .skills h2,
-        .contact h2 {
-            font-size: 35px;
-            color: #38bdf8;
-            margin-bottom: 20px;
-        }
-
-        .about p {
-            max-width: 700px;
-            margin: auto;
-            color: #cbd5e1;
-            line-height: 1.8;
-        }
-
-        /* SKILLS */
-        .skills {
-            padding: 80px 8%;
-            text-align: center;
-        }
-
-        .skills h2 {
-            margin-bottom: 40px;
-        }
-
-        .skill-box {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .skill {
-            background: #1e293b;
-            padding: 25px 40px;
-            border-radius: 10px;
-            color: white;
-            font-size: 18px;
-            transition: 0.3s;
-        }
-
-        .skill:hover {
-            background: #38bdf8;
-            color: #020617;
-        }
-
-        /* CONTACT */
-        .contact {
-            padding: 80px 8%;
-            background: #020617;
-            text-align: center;
-        }
-
-        .contact h2 {
-            color: #f1f5f8;
-        }
-
-        .contact p {
-            color: #f7fafc;
-            margin-bottom: 18px;
-        }
-
-        .contact a {
-            color: #38bdf8;
-            text-decoration: none;
-        }
-
-        /* SOCIAL */
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 30px 0;
-        }
-
-        .social-links a {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            font-size: 24px;
-            transition: 0.3s;
-        }
-
-        .social-links a:hover {
-            transform: translateY(-5px);
-        }
-
-        .facebook { background: #1877F2; }
-        .instagram { background: #E4405F; }
-        .tiktok { background: #000; }
-        .whatsapp { background: #25D366; }
-        .youtube { background: #FF0000; }
-
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #020617;
-            color: #64748b;
-        }
-
-        /* MOBILE */
-        @media (max-width: 850px) {
-            nav {
-                padding: 15px 5%;
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            nav ul {
-                gap: 15px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .hero {
-                flex-direction: column;
-                text-align: center;
-                gap: 40px;
-                padding: 50px 5%;
-            }
-
-            .hero-text h1 {
-                font-size: 40px;
-            }
-
-            .hero-right {
-                width: min(100%, 390px);
-            }
-        }
-
-        @media (max-width: 500px) {
-            .profile {
-                width: 190px;
-                height: 190px;
-            }
-
-            .date-converter-card {
-                padding: 18px;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
-    <nav>
-        <div class="logo">JP</div>
+<!-- NAVBAR -->
+<nav>
+    <div class="logo">JP</div>
 
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#file-converter">Converters</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#file-converter">Converters</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
 
-    <!-- HOME -->
-    <section class="hero" id="home">
+<!-- HOME -->
+<section class="hero" id="home">
 
-        <div class="hero-text">
-            <h3>Hello, I'm</h3>
+    <div class="hero-text">
+        <h3>Hello, I'm</h3>
 
-            <h1>JP <span>Joshi</span></h1>
-
-            <p>
-                I am a beginner web page developer.
-                I am learning web development and building
-                my skills step by step.
-            </p>
-
-            <a href="#contact" class="btn">Contact Me</a>
-        </div>
-
-        <!-- RIGHT SIDE: PHOTO + DATE CONVERTER -->
-        <div class="hero-right">
-
-            <div class="profile">
-                <img src="images/profile.jpg" alt="Jay Dev Joshi">
-            </div>
-
-            <div class="date-converter-card" id="date-converter">
-                <h2>📅 BS ↔ AD Converter</h2>
-                <p class="converter-subtitle">
-                    Bikram Sambat & English Date
-                </p>
-
-                <div class="converter-tabs">
-                    <button class="converter-tab active" data-mode="bs-to-ad">
-                        BS → AD
-                    </button>
-                    <button class="converter-tab" data-mode="ad-to-bs">
-                        AD → BS
-                    </button>
-                </div>
-
-                <div id="bs-input-box">
-                    <label class="converter-label" for="bs-date">
-                        BS Date (वि.सं.)
-                    </label>
-                    <input
-                        class="converter-input"
-                        id="bs-date"
-                        type="text"
-                        inputmode="numeric"
-                        placeholder="2083-04-27"
-                        maxlength="10"
-                    >
-                </div>
-
-                <div id="ad-input-box" style="display:none;">
-                    <label class="converter-label" for="ad-date">
-                        AD Date
-                    </label>
-                    <input class="converter-input" id="ad-date" type="date">
-                </div>
-
-                <button class="converter-btn" id="convert-btn">
-                    Convert Date
-                </button>
-
-                <div class="converter-result" aria-live="polite">
-                    <small>Result</small>
-                    <strong id="converted-date">Enter a date above</strong>
-                    <span id="converted-detail"></span>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- JPG ↔ PDF CONVERTER -->
-    <section class="file-converter-section" id="file-converter">
-
-        <h2>📄 JPG ↔ PDF Converter</h2>
-        <p class="file-converter-subtitle">
-            Convert JPG images to PDF and PDF pages to JPG directly in your browser.
-        </p>
-
-        <div class="file-converter-box">
-
-            <!-- JPG TO PDF -->
-            <div class="file-tool">
-                <h3>🖼️ JPG → PDF</h3>
-                <p>
-                    Select one or more JPG/PNG images and convert them into a PDF.
-                    Multiple images will be added as separate PDF pages.
-                </p>
-
-                <input
-                    class="file-input"
-                    id="jpg-files"
-                    type="file"
-                    accept="image/jpeg,image/png"
-                    multiple
-                >
-
-                <button class="file-btn" id="jpg-to-pdf-btn">
-                    Convert JPG to PDF
-                </button>
-
-                <div class="file-status" id="jpg-status"></div>
-            </div>
-
-            <!-- PDF TO JPG -->
-            <div class="file-tool">
-                <h3>📄 PDF → JPG</h3>
-                <p>
-                    Select a PDF and convert its pages into JPG images.
-                    Each PDF page is downloaded as a separate JPG.
-                </p>
-
-                <input
-                    class="file-input"
-                    id="pdf-file"
-                    type="file"
-                    accept="application/pdf"
-                >
-
-                <button class="file-btn" id="pdf-to-jpg-btn">
-                    Convert PDF to JPG
-                </button>
-
-                <div class="file-status" id="pdf-status"></div>
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- WORD ↔ PDF CONVERTER -->
-    <section class="word-pdf-section" id="word-pdf-converter">
-
-        <h2>📝 Word ↔ PDF Converter</h2>
-        <p class="word-pdf-subtitle">
-            Convert DOCX to PDF and PDF text to an editable DOCX file directly in your browser.
-            PDF → Word focuses on extracting text; complex PDF layouts may not be preserved exactly.
-        </p>
-
-        <div class="word-pdf-box">
-
-            <div class="word-pdf-tool">
-                <h3>📝 Word → PDF</h3>
-                <p>
-                    Select a Microsoft Word .docx file and convert its text and basic formatting
-                    into a PDF.
-                </p>
-
-                <input
-                    class="word-pdf-input"
-                    id="word-file"
-                    type="file"
-                    accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-                >
-
-                <button class="word-pdf-btn" id="word-to-pdf-btn">
-                    Convert Word to PDF
-                </button>
-
-                <div class="word-pdf-status" id="word-status"></div>
-            </div>
-
-            <div class="word-pdf-tool">
-                <h3>📄 PDF → Word</h3>
-                <p>
-                    Select a PDF and extract its text into an editable .docx Word document.
-                    Tables, images, columns and exact page design may change.
-                </p>
-
-                <input
-                    class="word-pdf-input"
-                    id="pdf-word-file"
-                    type="file"
-                    accept="application/pdf"
-                >
-
-                <button class="word-pdf-btn" id="pdf-to-word-btn">
-                    Convert PDF to Word
-                </button>
-
-                <div class="word-pdf-status" id="pdf-word-status"></div>
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- ABOUT -->
-    <section class="about" id="about">
-        <h2>About Me</h2>
+        <h1>JP <span>Joshi</span></h1>
 
         <p>
-            Hello! My name is Jay Dev Joshi (JP).
+            I am a beginner web page developer.
             I am learning web development and building
             my skills step by step.
-            My goal is to become a professional web developer.
         </p>
-    </section>
 
-    <!-- SKILLS -->
-    <section class="skills" id="skills">
+        <a href="#contact" class="btn">Contact Me</a>
+    </div>
 
-        <h2>My Skills</h2>
+    <!-- RIGHT SIDE: PHOTO + DATE CONVERTER -->
+    <div class="hero-right">
 
-        <div class="skill-box">
-            <div class="skill">HTML</div>
-            <div class="skill">CSS</div>
-            <div class="skill">JavaScript</div>
-            <div class="skill">Web Design</div>
-            <div class="skill">Account Management</div>
+        <div class="profile">
+            <img src="myphoto.jpg" alt="Jay Dev Joshi">
         </div>
 
-    </section>
+        <div class="date-converter-card" id="date-converter">
+            <h2>📅 BS ↔ AD Converter</h2>
+            <p class="converter-subtitle">
+                Bikram Sambat & English Date
+            </p>
 
-    <!-- CONTACT -->
-    <section class="contact" id="contact">
+            <div class="converter-tabs">
+                <button class="converter-tab active" data-mode="bs-to-ad">
+                    BS → AD
+                </button>
+                <button class="converter-tab" data-mode="ad-to-bs">
+                    AD → BS
+                </button>
+            </div>
 
-        <h2>Contact Me</h2>
+            <div id="bs-input-box">
+                <label class="converter-label" for="bs-date">
+                    BS Date (वि.सं.)
+                </label>
+                <input
+                    class="converter-input"
+                    id="bs-date"
+                    type="text"
+                    inputmode="numeric"
+                    placeholder="2083-04-27"
+                    maxlength="10"
+                >
+            </div>
 
-        <p>If you want to work with me, feel free to contact me.</p>
+            <div id="ad-input-box" style="display:none;">
+                <label class="converter-label" for="ad-date">
+                    AD Date
+                </label>
+                <input class="converter-input" id="ad-date" type="date">
+            </div>
 
-        <p>
-            📞 Phone:
-            <a href="tel:+9779848783884">+977 9848783884</a>
-        </p>
+            <button class="converter-btn" id="convert-btn">
+                Convert Date
+            </button>
 
-        <p>
-            📧 Email:
-            <a href="mailto:jpjoshi023@gmail.com">jpjoshi023@gmail.com</a>
-        </p>
-
-        <div class="social-links">
-            <a
-                href="https://www.facebook.com/jayparkashzoc"
-                class="facebook"
-                target="_blank"
-                rel="noopener"
-                aria-label="Facebook"
-            >f</a>
-
-            <a
-                href="#"
-                class="instagram"
-                aria-label="Instagram"
-            >◎</a>
-
-            <a
-                href="https://www.tiktok.com/@jpjoshi08"
-                class="tiktok"
-                target="_blank"
-                rel="noopener"
-                aria-label="TikTok"
-            >♪</a>
-
-            <a
-                href="#"
-                class="whatsapp"
-                aria-label="WhatsApp"
-            >☏</a>
-
-            <a
-                href="https://www.youtube.com/@jpjoshi1996"
-                class="youtube"
-                target="_blank"
-                rel="noopener"
-                aria-label="YouTube"
-            >▶</a>
+            <div class="converter-result" aria-live="polite">
+                <small>Result</small>
+                <strong id="converted-date">Enter a date above</strong>
+                <span id="converted-detail"></span>
+            </div>
         </div>
 
-    </section>
+    </div>
+</section>
 
-    <!-- FOOTER -->
-    <footer>
-        © 2026 Jay Dev Joshi | All Rights Reserved
-    </footer>
+<!-- JPG ↔ PDF CONVERTER -->
+<section class="file-converter-section" id="file-converter">
 
-    <!-- Nepali Date Converter library -->
-    <script src="https://cdn.jsdelivr.net/npm/nepali-date-converter/dist/nepali-date-converter.umd.js"></script>
+    <h2>📄 JPG ↔ PDF Converter</h2>
+    <p class="file-converter-subtitle">
+        Convert JPG images to PDF and PDF pages to JPG directly in your browser.
+    </p>
 
-    <!-- DATE CONVERTER SCRIPT -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
+    <div class="file-converter-box">
 
-            const tabs = document.querySelectorAll(".converter-tab");
-            const bsBox = document.getElementById("bs-input-box");
-            const adBox = document.getElementById("ad-input-box");
-            const bsInput = document.getElementById("bs-date");
-            const adInput = document.getElementById("ad-date");
-            const convertBtn = document.getElementById("convert-btn");
-            const convertedDate = document.getElementById("converted-date");
-            const convertedDetail = document.getElementById("converted-detail");
+        <!-- JPG TO PDF -->
+        <div class="file-tool">
+            <h3>🖼️ JPG → PDF</h3>
+            <p>
+                Select one or more JPG/PNG images and convert them into a PDF.
+                Multiple images will be added as separate PDF pages.
+            </p>
 
-            let mode = "bs-to-ad";
+            <input
+                class="file-input"
+                id="jpg-files"
+                type="file"
+                accept="image/jpeg,image/png"
+                multiple
+            >
 
-            // Some UMD builds expose NepaliDate directly; others expose it as .default.
-            const NepaliDateClass =
-                (window.NepaliDate && window.NepaliDate.default)
-                    ? window.NepaliDate.default
-                    : window.NepaliDate;
+            <button class="file-btn" id="jpg-to-pdf-btn">
+                Convert JPG to PDF
+            </button>
 
-            // Set today's AD date automatically
-            const today = new Date();
-            const yyyy = today.getFullYear();
-            const mm = String(today.getMonth() + 1).padStart(2, "0");
-            const dd = String(today.getDate()).padStart(2, "0");
-            adInput.value = `${yyyy}-${mm}-${dd}`;
+            <div class="file-status" id="jpg-status"></div>
+        </div>
 
-            function showError(message) {
-                convertedDate.textContent = message;
-                convertedDate.classList.add("converter-error");
-                convertedDetail.textContent = "";
-            }
+        <!-- PDF TO JPG -->
+        <div class="file-tool">
+            <h3>📄 PDF → JPG</h3>
+            <p>
+                Select a PDF and convert its pages into JPG images.
+                Each PDF page is downloaded as a separate JPG.
+            </p>
 
-            function showResult(main, detail) {
-                convertedDate.textContent = main;
-                convertedDetail.textContent = detail || "";
-                convertedDate.classList.remove("converter-error");
-            }
+            <input
+                class="file-input"
+                id="pdf-file"
+                type="file"
+                accept="application/pdf"
+            >
 
-            tabs.forEach(function (tab) {
-                tab.addEventListener("click", function () {
+            <button class="file-btn" id="pdf-to-jpg-btn">
+                Convert PDF to JPG
+            </button>
 
-                    mode = tab.dataset.mode;
+            <div class="file-status" id="pdf-status"></div>
+        </div>
 
-                    tabs.forEach(function (item) {
-                        item.classList.remove("active");
-                    });
+    </div>
 
-                    tab.classList.add("active");
+</section>
 
-                    if (mode === "bs-to-ad") {
-                        bsBox.style.display = "block";
-                        adBox.style.display = "none";
-                        bsInput.focus();
-                    } else {
-                        bsBox.style.display = "none";
-                        adBox.style.display = "block";
-                        adInput.focus();
-                    }
+<!-- WORD ↔ PDF CONVERTER -->
+<section class="word-pdf-section" id="word-pdf-converter">
 
-                    showResult("Enter a date above", "");
+    <h2>📝 Word ↔ PDF Converter</h2>
+    <p class="word-pdf-subtitle">
+        Convert DOCX to PDF and PDF text to an editable DOCX file directly in your browser.
+        PDF → Word focuses on extracting text; complex PDF layouts may not be preserved exactly.
+    </p>
+
+    <div class="word-pdf-box">
+
+        <div class="word-pdf-tool">
+            <h3>📝 Word → PDF</h3>
+            <p>
+                Select a Microsoft Word .docx file and convert its text and basic formatting
+                into a PDF.
+            </p>
+
+            <input
+                class="word-pdf-input"
+                id="word-file"
+                type="file"
+                accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+            >
+
+            <button class="word-pdf-btn" id="word-to-pdf-btn">
+                Convert Word to PDF
+            </button>
+
+            <div class="word-pdf-status" id="word-status"></div>
+        </div>
+
+        <div class="word-pdf-tool">
+            <h3>📄 PDF → Word</h3>
+            <p>
+                Select a PDF and extract its text into an editable .docx Word document.
+                Tables, images, columns and exact page design may change.
+            </p>
+
+            <input
+                class="word-pdf-input"
+                id="pdf-word-file"
+                type="file"
+                accept="application/pdf"
+            >
+
+            <button class="word-pdf-btn" id="pdf-to-word-btn">
+                Convert PDF to Word
+            </button>
+
+            <div class="word-pdf-status" id="pdf-word-status"></div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+    <h2>About Me</h2>
+
+    <p>
+        Hello! My name is Jay Dev Joshi (JP).
+        I am learning web development and building
+        my skills step by step.
+        My goal is to become a professional web developer.
+    </p>
+</section>
+
+<!-- SKILLS -->
+<section class="skills" id="skills">
+
+    <h2>My Skills</h2>
+
+    <div class="skill-box">
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">Web Design</div>
+        <div class="skill">Account Management</div>
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+
+    <h2>Contact Me</h2>
+
+    <p>If you want to work with me, feel free to contact me.</p>
+
+    <p>
+        📞 Phone:
+        <a href="tel:+9779848783884">+977 9848783884</a>
+    </p>
+
+    <p>
+        📧 Email:
+        <a href="mailto:jpjoshi023@gmail.com">jpjoshi023@gmail.com</a>
+    </p>
+
+    <div class="social-links">
+        <a
+            href="https://www.facebook.com/jayparkashzoc"
+            class="facebook"
+            target="_blank"
+            rel="noopener"
+            aria-label="Facebook"
+        >f</a>
+
+        <a
+            href="#"
+            class="instagram"
+            aria-label="Instagram"
+        >◎</a>
+
+        <a
+            href="https://www.tiktok.com/@jpjoshi08"
+            class="tiktok"
+            target="_blank"
+            rel="noopener"
+            aria-label="TikTok"
+        >♪</a>
+
+        <a
+            href="#"
+            class="whatsapp"
+            aria-label="WhatsApp"
+        >☏</a>
+
+        <a
+            href="https://www.youtube.com/@jpjoshi1996"
+            class="youtube"
+            target="_blank"
+            rel="noopener"
+            aria-label="YouTube"
+        >▶</a>
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+    © 2026 Jay Dev Joshi | All Rights Reserved
+</footer>
+
+<!-- Nepali Date Converter library -->
+<script src="https://cdn.jsdelivr.net/npm/nepali-date-converter/dist/nepali-date-converter.umd.js"></script>
+
+<!-- DATE CONVERTER SCRIPT -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const tabs = document.querySelectorAll(".converter-tab");
+        const bsBox = document.getElementById("bs-input-box");
+        const adBox = document.getElementById("ad-input-box");
+        const bsInput = document.getElementById("bs-date");
+        const adInput = document.getElementById("ad-date");
+        const convertBtn = document.getElementById("convert-btn");
+        const convertedDate = document.getElementById("converted-date");
+        const convertedDetail = document.getElementById("converted-detail");
+
+        let mode = "bs-to-ad";
+
+        // Some UMD builds expose NepaliDate directly; others expose it as .default.
+        const NepaliDateClass =
+            (window.NepaliDate && window.NepaliDate.default)
+                ? window.NepaliDate.default
+                : window.NepaliDate;
+
+        // Set today's AD date automatically
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, "0");
+        const dd = String(today.getDate()).padStart(2, "0");
+        adInput.value = `${yyyy}-${mm}-${dd}`;
+
+        function showError(message) {
+            convertedDate.textContent = message;
+            convertedDate.classList.add("converter-error");
+            convertedDetail.textContent = "";
+        }
+
+        function showResult(main, detail) {
+            convertedDate.textContent = main;
+            convertedDetail.textContent = detail || "";
+            convertedDate.classList.remove("converter-error");
+        }
+
+        tabs.forEach(function (tab) {
+            tab.addEventListener("click", function () {
+
+                mode = tab.dataset.mode;
+
+                tabs.forEach(function (item) {
+                    item.classList.remove("active");
                 });
+
+                tab.classList.add("active");
+
+                if (mode === "bs-to-ad") {
+                    bsBox.style.display = "block";
+                    adBox.style.display = "none";
+                    bsInput.focus();
+                } else {
+                    bsBox.style.display = "none";
+                    adBox.style.display = "block";
+                    adInput.focus();
+                }
+
+                showResult("Enter a date above", "");
             });
+        });
 
-            convertBtn.addEventListener("click", function () {
+        convertBtn.addEventListener("click", function () {
 
-                try {
-                    if (typeof NepaliDateClass !== "function") {
-                        showError("Date converter library did not load.");
+            try {
+                if (typeof NepaliDateClass !== "function") {
+                    showError("Date converter library did not load.");
+                    return;
+                }
+
+                if (mode === "bs-to-ad") {
+
+                    const value = bsInput.value.trim().replace(/\//g, "-");
+
+                    if (!/^\d{4}-\d{1,2}-\d{1,2}$/.test(value)) {
+                        showError("Use BS format: YYYY-MM-DD");
                         return;
                     }
 
-                    if (mode === "bs-to-ad") {
+                    const parts = value.split("-").map(Number);
+                    const year = parts[0];
+                    const month = parts[1];
+                    const day = parts[2];
 
-                        const value = bsInput.value.trim().replace(/\//g, "-");
+                    // NepaliDate constructor uses a 0-based month index.
+                    const bs = new NepaliDateClass(year, month - 1, day);
+                    const ad = bs.getAD();
 
-                        if (!/^\d{4}-\d{1,2}-\d{1,2}$/.test(value)) {
-                            showError("Use BS format: YYYY-MM-DD");
-                            return;
-                        }
+                    const adText =
+                        ad.year + "-" +
+                        String(ad.month + 1).padStart(2, "0") + "-" +
+                        String(ad.date).padStart(2, "0");
 
-                        const parts = value.split("-").map(Number);
-                        const year = parts[0];
-                        const month = parts[1];
-                        const day = parts[2];
+                    const weekday = bs.toJsDate().toLocaleDateString(
+                        "en-US",
+                        { weekday: "long" }
+                    );
 
-                        // NepaliDate constructor uses a 0-based month index.
-                        const bs = new NepaliDateClass(year, month - 1, day);
-                        const ad = bs.getAD();
+                    showResult(adText, "AD • " + weekday);
 
-                        const adText =
-                            ad.year + "-" +
-                            String(ad.month + 1).padStart(2, "0") + "-" +
-                            String(ad.date).padStart(2, "0");
+                } else {
 
-                        const weekday = bs.toJsDate().toLocaleDateString(
-                            "en-US",
-                            { weekday: "long" }
-                        );
-
-                        showResult(adText, "AD • " + weekday);
-
-                    } else {
-
-                        if (!adInput.value) {
-                            showError("Please select an AD date.");
-                            return;
-                        }
-
-                        const adDate = new Date(adInput.value + "T00:00:00");
-                        const bs = NepaliDateClass.fromAD(adDate);
-
-                        const bsText =
-                            bs.getYear() + "-" +
-                            String(bs.getMonth() + 1).padStart(2, "0") + "-" +
-                            String(bs.getDate()).padStart(2, "0");
-
-                        showResult(bsText, "वि.सं. • Bikram Sambat");
+                    if (!adInput.value) {
+                        showError("Please select an AD date.");
+                        return;
                     }
 
-                } catch (error) {
-                    console.error("Date Converter Error:", error);
-                    showError("Invalid date. Please check the date.");
+                    const adDate = new Date(adInput.value + "T00:00:00");
+                    const bs = NepaliDateClass.fromAD(adDate);
+
+                    const bsText =
+                        bs.getYear() + "-" +
+                        String(bs.getMonth() + 1).padStart(2, "0") + "-" +
+                        String(bs.getDate()).padStart(2, "0");
+
+                    showResult(bsText, "वि.सं. • Bikram Sambat");
                 }
-            });
 
-            bsInput.addEventListener("keydown", function (event) {
-                if (event.key === "Enter") {
-                    convertBtn.click();
-                }
-            });
-
-        });
-    </script>
-
-    <!-- File converter libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.8.0/mammoth.browser.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.js"></script>
-
-    <!-- JPG ↔ PDF CONVERTER SCRIPT -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-
-            const jpgInput = document.getElementById("jpg-files");
-            const jpgBtn = document.getElementById("jpg-to-pdf-btn");
-            const jpgStatus = document.getElementById("jpg-status");
-
-            const pdfInput = document.getElementById("pdf-file");
-            const pdfBtn = document.getElementById("pdf-to-jpg-btn");
-            const pdfStatus = document.getElementById("pdf-status");
-
-            // PDF.js worker
-            if (window.pdfjsLib) {
-                pdfjsLib.GlobalWorkerOptions.workerSrc =
-                    "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+            } catch (error) {
+                console.error("Date Converter Error:", error);
+                showError("Invalid date. Please check the date.");
             }
+        });
 
-            function loadImage(file) {
-                return new Promise(function (resolve, reject) {
-                    const reader = new FileReader();
+        bsInput.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                convertBtn.click();
+            }
+        });
 
-                    reader.onload = function (event) {
-                        const img = new Image();
+    });
+</script>
 
-                        img.onload = function () {
-                            resolve(img);
-                        };
+<!-- File converter libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.8.0/mammoth.browser.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/docx/8.5.0/docx.umd.min.js"></script>
 
-                        img.onerror = reject;
-                        img.src = event.target.result;
+<!-- JPG ↔ PDF CONVERTER SCRIPT -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const jpgInput = document.getElementById("jpg-files");
+        const jpgBtn = document.getElementById("jpg-to-pdf-btn");
+        const jpgStatus = document.getElementById("jpg-status");
+
+        const pdfInput = document.getElementById("pdf-file");
+        const pdfBtn = document.getElementById("pdf-to-jpg-btn");
+        const pdfStatus = document.getElementById("pdf-status");
+
+        // PDF.js worker
+        if (window.pdfjsLib) {
+            pdfjsLib.GlobalWorkerOptions.workerSrc =
+                "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+        }
+
+        function loadImage(file) {
+            return new Promise(function (resolve, reject) {
+                const reader = new FileReader();
+
+                reader.onload = function (event) {
+                    const img = new Image();
+
+                    img.onload = function () {
+                        resolve(img);
                     };
 
-                    reader.onerror = reject;
-                    reader.readAsDataURL(file);
-                });
+                    img.onerror = reject;
+                    img.src = event.target.result;
+                };
+
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+            });
+        }
+
+        jpgBtn.addEventListener("click", async function () {
+            const files = Array.from(jpgInput.files || []);
+
+            if (!files.length) {
+                jpgStatus.textContent = "Please select JPG or PNG image(s).";
+                return;
             }
 
-            jpgBtn.addEventListener("click", async function () {
-                const files = Array.from(jpgInput.files || []);
+            try {
+                jpgBtn.disabled = true;
+                jpgStatus.textContent = "Converting images to PDF...";
 
-                if (!files.length) {
-                    jpgStatus.textContent = "Please select JPG or PNG image(s).";
-                    return;
-                }
+                const { jsPDF } = window.jspdf;
+                let pdf = null;
 
-                try {
-                    jpgBtn.disabled = true;
-                    jpgStatus.textContent = "Converting images to PDF...";
+                for (let i = 0; i < files.length; i++) {
+                    const img = await loadImage(files[i]);
 
-                    const { jsPDF } = window.jspdf;
-                    let pdf = null;
+                    const imgWidth = img.naturalWidth || img.width;
+                    const imgHeight = img.naturalHeight || img.height;
 
-                    for (let i = 0; i < files.length; i++) {
-                        const img = await loadImage(files[i]);
+                    // Use A4-sized page and fit image inside it.
+                    const pageW = 210;
+                    const pageH = 297;
+                    const margin = 8;
 
-                        const imgWidth = img.naturalWidth || img.width;
-                        const imgHeight = img.naturalHeight || img.height;
+                    const ratio = Math.min(
+                        (pageW - margin * 2) / imgWidth,
+                        (pageH - margin * 2) / imgHeight
+                    );
 
-                        // Use A4-sized page and fit image inside it.
-                        const pageW = 210;
-                        const pageH = 297;
-                        const margin = 8;
+                    const w = imgWidth * ratio;
+                    const h = imgHeight * ratio;
+                    const x = (pageW - w) / 2;
+                    const y = (pageH - h) / 2;
 
-                        const ratio = Math.min(
-                            (pageW - margin * 2) / imgWidth,
-                            (pageH - margin * 2) / imgHeight
-                        );
-
-                        const w = imgWidth * ratio;
-                        const h = imgHeight * ratio;
-                        const x = (pageW - w) / 2;
-                        const y = (pageH - h) / 2;
-
-                        if (!pdf) {
-                            pdf = new jsPDF({
-                                orientation: pageW >= pageH ? "landscape" : "portrait",
-                                unit: "mm",
-                                format: "a4"
-                            });
-                        } else {
-                            pdf.addPage("a4", "portrait");
-                        }
-
-                        pdf.addImage(
-                            img,
-                            "JPEG",
-                            x,
-                            y,
-                            w,
-                            h,
-                            undefined,
-                            "MEDIUM"
-                        );
+                    if (!pdf) {
+                        pdf = new jsPDF({
+                            orientation: pageW >= pageH ? "landscape" : "portrait",
+                            unit: "mm",
+                            format: "a4"
+                        });
+                    } else {
+                        pdf.addPage("a4", "portrait");
                     }
 
-                    pdf.save("JP-Joshi-Images.pdf");
-                    jpgStatus.textContent = "Done! PDF downloaded successfully.";
-
-                } catch (error) {
-                    console.error(error);
-                    jpgStatus.textContent = "Could not convert the images.";
-                } finally {
-                    jpgBtn.disabled = false;
-                }
-            });
-
-            pdfBtn.addEventListener("click", async function () {
-                const file = pdfInput.files && pdfInput.files[0];
-
-                if (!file) {
-                    pdfStatus.textContent = "Please select a PDF file.";
-                    return;
+                    pdf.addImage(
+                        img,
+                        "JPEG",
+                        x,
+                        y,
+                        w,
+                        h,
+                        undefined,
+                        "MEDIUM"
+                    );
                 }
 
-                try {
-                    pdfBtn.disabled = true;
-                    pdfStatus.textContent = "Converting PDF pages to JPG...";
+                pdf.save("JP-Joshi-Images.pdf");
+                jpgStatus.textContent = "Done! PDF downloaded successfully.";
 
-                    const arrayBuffer = await file.arrayBuffer();
-                    const pdf = await pdfjsLib.getDocument({
-                        data: arrayBuffer
+            } catch (error) {
+                console.error(error);
+                jpgStatus.textContent = "Could not convert the images.";
+            } finally {
+                jpgBtn.disabled = false;
+            }
+        });
+
+        pdfBtn.addEventListener("click", async function () {
+            const file = pdfInput.files && pdfInput.files[0];
+
+            if (!file) {
+                pdfStatus.textContent = "Please select a PDF file.";
+                return;
+            }
+
+            try {
+                pdfBtn.disabled = true;
+                pdfStatus.textContent = "Converting PDF pages to JPG...";
+
+                const arrayBuffer = await file.arrayBuffer();
+                const pdf = await pdfjsLib.getDocument({
+                    data: arrayBuffer
+                }).promise;
+
+                for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber++) {
+
+                    const page = await pdf.getPage(pageNumber);
+
+                    const scale = 2;
+                    const viewport = page.getViewport({ scale: scale });
+
+                    const canvas = document.createElement("canvas");
+                    const context = canvas.getContext("2d");
+
+                    canvas.width = Math.ceil(viewport.width);
+                    canvas.height = Math.ceil(viewport.height);
+
+                    await page.render({
+                        canvasContext: context,
+                        viewport: viewport
                     }).promise;
 
-                    for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber++) {
+                    const blob = await new Promise(function (resolve) {
+                        canvas.toBlob(resolve, "image/jpeg", 0.92);
+                    });
 
-                        const page = await pdf.getPage(pageNumber);
+                    const url = URL.createObjectURL(blob);
+                    const link = document.createElement("a");
 
-                        const scale = 2;
-                        const viewport = page.getViewport({ scale: scale });
+                    link.href = url;
+                    link.download =
+                        "JP-Joshi-PDF-page-" + pageNumber + ".jpg";
 
-                        const canvas = document.createElement("canvas");
-                        const context = canvas.getContext("2d");
+                    document.body.appendChild(link);
+                    link.click();
+                    link.remove();
 
-                        canvas.width = Math.ceil(viewport.width);
-                        canvas.height = Math.ceil(viewport.height);
-
-                        await page.render({
-                            canvasContext: context,
-                            viewport: viewport
-                        }).promise;
-
-                        const blob = await new Promise(function (resolve) {
-                            canvas.toBlob(resolve, "image/jpeg", 0.92);
-                        });
-
-                        const url = URL.createObjectURL(blob);
-                        const link = document.createElement("a");
-
-                        link.href = url;
-                        link.download =
-                            "JP-Joshi-PDF-page-" + pageNumber + ".jpg";
-
-                        document.body.appendChild(link);
-                        link.click();
-                        link.remove();
-
-                        setTimeout(function () {
-                            URL.revokeObjectURL(url);
-                        }, 1000);
-                    }
-
-                    pdfStatus.textContent =
-                        pdf.numPages + " page(s) converted. JPG download started.";
-
-                } catch (error) {
-                    console.error(error);
-                    pdfStatus.textContent =
-                        "Could not convert the PDF. Please check the file.";
-                } finally {
-                    pdfBtn.disabled = false;
+                    setTimeout(function () {
+                        URL.revokeObjectURL(url);
+                    }, 1000);
                 }
-            });
 
+                pdfStatus.textContent =
+                    pdf.numPages + " page(s) converted. JPG download started.";
+
+            } catch (error) {
+                console.error(error);
+                pdfStatus.textContent =
+                    "Could not convert the PDF. Please check the file.";
+            } finally {
+                pdfBtn.disabled = false;
+            }
         });
-    </script>
 
-    <!-- WORD ↔ PDF CONVERTER SCRIPT -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
+    });
+</script>
 
-            const wordInput = document.getElementById("word-file");
-            const wordBtn = document.getElementById("word-to-pdf-btn");
-            const wordStatus = document.getElementById("word-status");
+<!-- WORD ↔ PDF CONVERTER SCRIPT -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
 
-            const pdfWordInput = document.getElementById("pdf-word-file");
-            const pdfWordBtn = document.getElementById("pdf-to-word-btn");
-            const pdfWordStatus = document.getElementById("pdf-word-status");
+        const wordInput = document.getElementById("word-file");
+        const wordBtn = document.getElementById("word-to-pdf-btn");
+        const wordStatus = document.getElementById("word-status");
 
-            function setStatus(el, msg) {
-                el.textContent = msg;
+        const pdfWordInput = document.getElementById("pdf-word-file");
+        const pdfWordBtn = document.getElementById("pdf-to-word-btn");
+        const pdfWordStatus = document.getElementById("pdf-word-status");
+
+        function setStatus(el, msg) {
+            el.textContent = msg;
+        }
+
+        function downloadBlob(blob, filename) {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            setTimeout(() => URL.revokeObjectURL(url), 1500);
+        }
+
+        // WORD → PDF
+        wordBtn.addEventListener("click", async function () {
+            const file = wordInput.files && wordInput.files[0];
+
+            if (!file) {
+                setStatus(wordStatus, "Please select a .docx Word file.");
+                return;
             }
 
-            function downloadBlob(blob, filename) {
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement("a");
-                a.href = url;
-                a.download = filename;
-                document.body.appendChild(a);
-                a.click();
-                a.remove();
-                setTimeout(() => URL.revokeObjectURL(url), 1500);
+            if (!/\.docx$/i.test(file.name)) {
+                setStatus(wordStatus, "Only .docx Word files are supported.");
+                return;
             }
 
-            // WORD → PDF
-            wordBtn.addEventListener("click", async function () {
-                const file = wordInput.files && wordInput.files[0];
+            if (!window.mammoth || !window.jspdf || !window.html2canvas) {
+                setStatus(wordStatus, "Converter libraries are still loading. Refresh the page and try again.");
+                return;
+            }
 
-                if (!file) {
-                    setStatus(wordStatus, "Please select a .docx Word file.");
-                    return;
+            try {
+                wordBtn.disabled = true;
+                setStatus(wordStatus, "Converting Word document...");
+
+                const arrayBuffer = await file.arrayBuffer();
+
+                const result = await window.mammoth.convertToHtml(
+                    { arrayBuffer: arrayBuffer },
+                    { includeDefaultStyleMap: true }
+                );
+
+                if (!result.value || !result.value.trim()) {
+                    throw new Error("The Word document contains no readable text.");
                 }
 
-                if (!/\.docx$/i.test(file.name)) {
-                    setStatus(wordStatus, "Only .docx Word files are supported.");
-                    return;
-                }
+                const wrapper = document.createElement("div");
+                wrapper.style.position = "fixed";
+                wrapper.style.left = "-100000px";
+                wrapper.style.top = "0";
+                wrapper.style.width = "794px";
+                wrapper.style.minHeight = "1123px";
+                wrapper.style.padding = "55px";
+                wrapper.style.background = "#ffffff";
+                wrapper.style.color = "#111111";
+                wrapper.style.fontFamily = "Arial, 'Noto Sans', sans-serif";
+                wrapper.style.fontSize = "16px";
+                wrapper.style.lineHeight = "1.55";
+                wrapper.style.wordBreak = "break-word";
+                wrapper.innerHTML = result.value;
 
-                if (!window.mammoth || !window.jspdf || !window.html2canvas) {
-                    setStatus(wordStatus, "Converter libraries are still loading. Refresh the page and try again.");
-                    return;
-                }
+                wrapper.querySelectorAll("img").forEach(function (img) {
+                    img.style.maxWidth = "100%";
+                    img.style.height = "auto";
+                });
 
-                try {
-                    wordBtn.disabled = true;
-                    setStatus(wordStatus, "Converting Word document...");
+                document.body.appendChild(wrapper);
 
-                    const arrayBuffer = await file.arrayBuffer();
+                // Wait for images/fonts/layout before rendering.
+                await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
 
-                    const result = await window.mammoth.convertToHtml(
-                        { arrayBuffer: arrayBuffer },
-                        { includeDefaultStyleMap: true }
+                const canvas = await window.html2canvas(wrapper, {
+                    scale: 1.5,
+                    backgroundColor: "#ffffff",
+                    useCORS: true,
+                    logging: false
+                });
+
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF("p", "mm", "a4");
+
+                const pageWidth = 210;
+                const pageHeight = 297;
+                const margin = 10;
+                const usableWidth = pageWidth - margin * 2;
+                const pxPerPage = Math.floor(
+                    canvas.width * ((pageHeight - margin * 2) / usableWidth)
+                );
+
+                let offset = 0;
+                let pageIndex = 0;
+
+                while (offset < canvas.height) {
+                    const sliceHeight = Math.min(pxPerPage, canvas.height - offset);
+
+                    const pageCanvas = document.createElement("canvas");
+                    pageCanvas.width = canvas.width;
+                    pageCanvas.height = sliceHeight;
+
+                    const ctx = pageCanvas.getContext("2d");
+                    ctx.fillStyle = "#ffffff";
+                    ctx.fillRect(0, 0, pageCanvas.width, pageCanvas.height);
+                    ctx.drawImage(
+                        canvas,
+                        0, offset, canvas.width, sliceHeight,
+                        0, 0, canvas.width, sliceHeight
                     );
 
-                    if (!result.value || !result.value.trim()) {
-                        throw new Error("The Word document contains no readable text.");
+                    if (pageIndex > 0) {
+                        pdf.addPage();
                     }
 
-                    const wrapper = document.createElement("div");
-                    wrapper.style.position = "fixed";
-                    wrapper.style.left = "-100000px";
-                    wrapper.style.top = "0";
-                    wrapper.style.width = "794px";
-                    wrapper.style.minHeight = "1123px";
-                    wrapper.style.padding = "55px";
-                    wrapper.style.background = "#ffffff";
-                    wrapper.style.color = "#111111";
-                    wrapper.style.fontFamily = "Arial, 'Noto Sans', sans-serif";
-                    wrapper.style.fontSize = "16px";
-                    wrapper.style.lineHeight = "1.55";
-                    wrapper.style.wordBreak = "break-word";
-                    wrapper.innerHTML = result.value;
+                    const imageData = pageCanvas.toDataURL("image/jpeg", 0.92);
+                    const imageHeight =
+                        (sliceHeight / canvas.width) * usableWidth;
 
-                    wrapper.querySelectorAll("img").forEach(function (img) {
-                        img.style.maxWidth = "100%";
-                        img.style.height = "auto";
-                    });
-
-                    document.body.appendChild(wrapper);
-
-                    // Wait for images/fonts/layout before rendering.
-                    await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
-
-                    const canvas = await window.html2canvas(wrapper, {
-                        scale: 1.5,
-                        backgroundColor: "#ffffff",
-                        useCORS: true,
-                        logging: false
-                    });
-
-                    const { jsPDF } = window.jspdf;
-                    const pdf = new jsPDF("p", "mm", "a4");
-
-                    const pageWidth = 210;
-                    const pageHeight = 297;
-                    const margin = 10;
-                    const usableWidth = pageWidth - margin * 2;
-                    const pxPerPage = Math.floor(
-                        canvas.width * ((pageHeight - margin * 2) / usableWidth)
+                    pdf.addImage(
+                        imageData,
+                        "JPEG",
+                        margin,
+                        margin,
+                        usableWidth,
+                        Math.min(imageHeight, pageHeight - margin * 2)
                     );
 
-                    let offset = 0;
-                    let pageIndex = 0;
-
-                    while (offset < canvas.height) {
-                        const sliceHeight = Math.min(pxPerPage, canvas.height - offset);
-
-                        const pageCanvas = document.createElement("canvas");
-                        pageCanvas.width = canvas.width;
-                        pageCanvas.height = sliceHeight;
-
-                        const ctx = pageCanvas.getContext("2d");
-                        ctx.fillStyle = "#ffffff";
-                        ctx.fillRect(0, 0, pageCanvas.width, pageCanvas.height);
-                        ctx.drawImage(
-                            canvas,
-                            0, offset, canvas.width, sliceHeight,
-                            0, 0, canvas.width, sliceHeight
-                        );
-
-                        if (pageIndex > 0) {
-                            pdf.addPage();
-                        }
-
-                        const imageData = pageCanvas.toDataURL("image/jpeg", 0.92);
-                        const imageHeight =
-                            (sliceHeight / canvas.width) * usableWidth;
-
-                        pdf.addImage(
-                            imageData,
-                            "JPEG",
-                            margin,
-                            margin,
-                            usableWidth,
-                            Math.min(imageHeight, pageHeight - margin * 2)
-                        );
-
-                        offset += sliceHeight;
-                        pageIndex++;
-                    }
-
-                    pdf.save("JP-Joshi-Word-to-PDF.pdf");
-                    wrapper.remove();
-
-                    setStatus(wordStatus, "Done! Your PDF download has started.");
-
-                } catch (error) {
-                    console.error("Word → PDF:", error);
-                    setStatus(
-                        wordStatus,
-                        "Conversion failed. Please use a valid .docx file and try again."
-                    );
-                } finally {
-                    wordBtn.disabled = false;
-                }
-            });
-
-            // PDF → WORD
-            pdfWordBtn.addEventListener("click", async function () {
-                const file = pdfWordInput.files && pdfWordInput.files[0];
-
-                if (!file) {
-                    setStatus(pdfWordStatus, "Please select a PDF file.");
-                    return;
+                    offset += sliceHeight;
+                    pageIndex++;
                 }
 
-                if (!window.pdfjsLib || !window.docx) {
+                pdf.save("JP-Joshi-Word-to-PDF.pdf");
+                wrapper.remove();
+
+                setStatus(wordStatus, "Done! Your PDF download has started.");
+
+            } catch (error) {
+                console.error("Word → PDF:", error);
+                setStatus(
+                    wordStatus,
+                    "Conversion failed. Please use a valid .docx file and try again."
+                );
+            } finally {
+                wordBtn.disabled = false;
+            }
+        });
+
+        // PDF → WORD
+        pdfWordBtn.addEventListener("click", async function () {
+            const file = pdfWordInput.files && pdfWordInput.files[0];
+
+            if (!file) {
+                setStatus(pdfWordStatus, "Please select a PDF file.");
+                return;
+            }
+
+            if (!window.pdfjsLib || !window.docx) {
+                setStatus(
+                    pdfWordStatus,
+                    "Converter libraries are still loading. Refresh the page and try again."
+                );
+                return;
+            }
+
+            try {
+                pdfWordBtn.disabled = true;
+                setStatus(pdfWordStatus, "Reading PDF pages...");
+
+                if (window.pdfjsLib.GlobalWorkerOptions) {
+                    window.pdfjsLib.GlobalWorkerOptions.workerSrc =
+                        "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+                }
+
+                const data = new Uint8Array(await file.arrayBuffer());
+
+                const pdf = await window.pdfjsLib.getDocument({
+                    data: data
+                }).promise;
+
+                const children = [];
+
+                for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber++) {
                     setStatus(
                         pdfWordStatus,
-                        "Converter libraries are still loading. Refresh the page and try again."
+                        "Processing page " + pageNumber + " of " + pdf.numPages + "..."
                     );
-                    return;
-                }
 
-                try {
-                    pdfWordBtn.disabled = true;
-                    setStatus(pdfWordStatus, "Reading PDF pages...");
+                    const page = await pdf.getPage(pageNumber);
+                    const content = await page.getTextContent();
 
-                    if (window.pdfjsLib.GlobalWorkerOptions) {
-                        window.pdfjsLib.GlobalWorkerOptions.workerSrc =
-                            "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+                    children.push(
+                        new window.docx.Paragraph({
+                            text: "Page " + pageNumber,
+                            heading: window.docx.HeadingLevel.HEADING_2
+                        })
+                    );
+
+                    let currentLine = "";
+                    let previousY = null;
+
+                    for (const item of content.items) {
+                        const y = item.transform ? item.transform[5] : null;
+
+                        if (
+                            previousY !== null &&
+                            y !== null &&
+                            Math.abs(y - previousY) > 5
+                        ) {
+                            if (currentLine.trim()) {
+                                children.push(
+                                    new window.docx.Paragraph({
+                                        text: currentLine.trim()
+                                    })
+                                );
+                            }
+                            currentLine = "";
+                        }
+
+                        if (item.str) {
+                            currentLine += (currentLine ? " " : "") + item.str;
+                        }
+
+                        previousY = y;
                     }
 
-                    const data = new Uint8Array(await file.arrayBuffer());
-
-                    const pdf = await window.pdfjsLib.getDocument({
-                        data: data
-                    }).promise;
-
-                    const children = [];
-
-                    for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber++) {
-                        setStatus(
-                            pdfWordStatus,
-                            "Processing page " + pageNumber + " of " + pdf.numPages + "..."
-                        );
-
-                        const page = await pdf.getPage(pageNumber);
-                        const content = await page.getTextContent();
-
+                    if (currentLine.trim()) {
                         children.push(
                             new window.docx.Paragraph({
-                                text: "Page " + pageNumber,
-                                heading: window.docx.HeadingLevel.HEADING_2
+                                text: currentLine.trim()
                             })
                         );
-
-                        let currentLine = "";
-                        let previousY = null;
-
-                        for (const item of content.items) {
-                            const y = item.transform ? item.transform[5] : null;
-
-                            if (
-                                previousY !== null &&
-                                y !== null &&
-                                Math.abs(y - previousY) > 5
-                            ) {
-                                if (currentLine.trim()) {
-                                    children.push(
-                                        new window.docx.Paragraph({
-                                            text: currentLine.trim()
-                                        })
-                                    );
-                                }
-                                currentLine = "";
-                            }
-
-                            if (item.str) {
-                                currentLine += (currentLine ? " " : "") + item.str;
-                            }
-
-                            previousY = y;
-                        }
-
-                        if (currentLine.trim()) {
-                            children.push(
-                                new window.docx.Paragraph({
-                                    text: currentLine.trim()
-                                })
-                            );
-                        }
-
-                        children.push(
-                            new window.docx.Paragraph({ text: "" })
-                        );
                     }
 
-                    if (children.length === 0) {
-                        throw new Error("No text found in PDF.");
-                    }
-
-                    const documentFile = new window.docx.Document({
-                        sections: [{
-                            properties: {},
-                            children: children
-                        }]
-                    });
-
-                    const blob = await window.docx.Packer.toBlob(documentFile);
-                    downloadBlob(blob, "JP-Joshi-PDF-to-Word.docx");
-
-                    setStatus(
-                        pdfWordStatus,
-                        "Done! Editable Word document download has started."
+                    children.push(
+                        new window.docx.Paragraph({ text: "" })
                     );
-
-                } catch (error) {
-                    console.error("PDF → Word:", error);
-                    setStatus(
-                        pdfWordStatus,
-                        "PDF could not be converted. Text-based PDFs work best; scanned/image PDFs may not contain extractable text."
-                    );
-                } finally {
-                    pdfWordBtn.disabled = false;
                 }
-            });
-        });
-    </script>
 
-</body>
-</html>
+                if (children.length === 0) {
+                    throw new Error("No text found in PDF.");
+                }
+
+                const documentFile = new window.docx.Document({
+                    sections: [{
+                        properties: {},
+                        children: children
+                    }]
+                });
+
+                const blob = await window.docx.Packer.toBlob(documentFile);
+                downloadBlob(blob, "JP-Joshi-PDF-to-Word.docx");
+
+                setStatus(
+                    pdfWordStatus,
+                    "Done! Editable Word document download has started."
+                );
+
+            } catch (error) {
+                console.error("PDF → Word:", error);
+                setStatus(
+                    pdfWordStatus,
+                    "PDF could not be converted. Text-based PDFs work best; scanned/image PDFs may not contain extractable text."
+                );
+            } finally {
+                pdfWordBtn.disabled = false;
+            }
+        });
+    });
+</script>
+</body> </html>
+
+
+Close
