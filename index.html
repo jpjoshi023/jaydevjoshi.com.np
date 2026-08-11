@@ -358,6 +358,8 @@
         }
 
 
+        section[id] { scroll-margin-top: 85px; }
+
         /* WORD ↔ PDF CONVERTER */
         .word-pdf-section {
             padding: 80px 8%;
@@ -1220,6 +1222,7 @@
     <!-- Word/PDF converter libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.8.0/mammoth.browser.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/docx/8.5.0/docx.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
     <!-- WORD ↔ PDF CONVERTER SCRIPT -->
     <script>
@@ -1243,66 +1246,164 @@
 
                 try {
                     wordBtn.disabled = true;
-                    wordStatus.textContent = "Reading Word document...";
+                    wordStatus.textContent = "Converting Word document to PDF...";
 
                     const arrayBuffer = await file.arrayBuffer();
 
-                    const result = await mammoth.convertToHtml(
-                        { arrayBuffer: arrayBuffer },
-                        {
-                            includeDefaultStyleMap: true,
-                            convertImage: mammoth.images.imgElement(function (image) {
-                                return image.read("base64").then(function (imageBuffer) {
-                                    return {
-                                        src: "data:" + image.contentType + ";base64," + imageBuffer
-                                    };
-                                });
-                            })
+                    // Extract Word text reliably with Mammoth.
+                    const result = await mammoth.extractRawText({
+                        arrayBuffer: arrayBuffer
+                    });
+
+                    const rawText = (result.value || "").replace(/\r/g, "");
+                    if (!rawText.trim()) {
+                        throw new Error("No readable text found in the Word document.");
+                    }
+
+                    // Render text as an image so Nepali/Unicode characters work too.
+                    const lines = rawText.split("\n");
+                    const pageWidth = 794;
+                    const pageHeight = 1123;
+                    const padding = 60;
+                    const usableHeight = pageHeight - (padding * 2);
+
+                    const pages = [];
+                    let page = document.createElement("div");
+
+                    function createPage() {
+                        const el = document.createElement("div");
+                        el.style.position = "fixed";
+                        el.style.left = "-100000px";
+                        el.style.top = "0";
+                        el.style.width = pageWidth + "px";
+                        el.style.minHeight = pageHeight + "px";
+                        el.style.maxHeight = pageHeight + "px";
+                        el.style.boxSizing = "border-box";
+                        el.style.padding = padding + "px";
+                        el.style.background = "#ffffff";
+                        el.style.color = "#111111";
+                        el.style.fontFamily = '"Noto Sans", "Noto Sans Devanagari", Arial, sans-serif';
+                        el.style.fontSize = "17px";
+                        el.style.lineHeight = "1.55";
+                        el.style.overflow = "hidden";
+                        el.style.whiteSpace = "pre-wrap";
+                        return el;
+                    }
+
+                    page = createPage();
+                    document.body.appendChild(page);
+
+                    function addLine(line) {
+                        const span = document.createElement("div");
+                        span.textContent = line === "" ? "\u00a0" : line;
+                        span.style.whiteSpace = "pre-wrap";
+                        span.style.wordBreak = "break-word";
+                        page.appendChild(span);
+
+                        if (page.scrollHeight > usableHeight + padding) {
+                            page.removeChild(span);
+                            return false;
                         }
-                    );
+                        return true;
+                    }
 
-                    const wrapper = document.createElement("div");
-                    wrapper.style.position = "fixed";
-                    wrapper.style.left = "-100000px";
-                    wrapper.style.top = "0";
-                    wrapper.style.width = "760px";
-                    wrapper.style.background = "#ffffff";
-                    wrapper.style.color = "#111111";
-                    wrapper.style.padding = "40px";
-                    wrapper.style.fontFamily = "Arial, sans-serif";
-                    wrapper.style.fontSize = "14px";
-                    wrapper.style.lineHeight = "1.5";
-                    wrapper.innerHTML = result.value;
+                    for (const line of lines) {
+                        if (!addLine(line)) {
+                            pages.push(page);
+                            page.remove();
 
-                    document.body.appendChild(wrapper);
+                            page = createPage();
+                            document.body.appendChild(page);
+
+                            // If one very long line doesn't fit, split it by characters.
+                            if (!addLine(line)) {
+                                let current = "";
+                                for (const char of line) {
+                                    const candidate = current + char;
+                                    const test = document.createElement("div");
+                                    test.textContent = candidate;
+                                    test.style.whiteSpace = "pre-wrap";
+                                    test.style.wordBreak = "break-word";
+                                    page.appendChild(test);
+
+                                    if (page.scrollHeight > usableHeight + padding) {
+                                        page.removeChild(test);
+
+                                        if (current) {
+                                            const finalPart = document.createElement("div");
+                                            finalPart.textContent = current;
+                                            page.appendChild(finalPart);
+                                        }
+
+                                        pages.push(page);
+                                        page.remove();
+
+                                        page = createPage();
+                                        document.body.appendChild(page);
+                                        current = char;
+                                    } else {
+                                        page.removeChild(test);
+                                        current = candidate;
+                                    }
+                                }
+
+                                if (current) {
+                                    const finalPart = document.createElement("div");
+                                    finalPart.textContent = current;
+                                    page.appendChild(finalPart);
+                                }
+                            }
+                        }
+                    }
+
+                    if (page.textContent.trim()) {
+                        pages.push(page);
+                    } else {
+                        page.remove();
+                    }
 
                     const { jsPDF } = window.jspdf;
                     const pdf = new jsPDF({
                         orientation: "portrait",
-                        unit: "pt",
+                        unit: "mm",
                         format: "a4"
                     });
 
-                    await pdf.html(wrapper, {
-                        x: 30,
-                        y: 30,
-                        width: 535,
-                        windowWidth: 760,
-                        autoPaging: "text",
-                        margin: [30, 30, 30, 30]
-                    });
+                    for (let i = 0; i < pages.length; i++) {
+                        const canvas = await html2canvas(pages[i], {
+                            scale: 1.5,
+                            backgroundColor: "#ffffff",
+                            useCORS: true,
+                            logging: false
+                        });
+
+                        const imgData = canvas.toDataURL("image/jpeg", 0.92);
+
+                        if (i > 0) {
+                            pdf.addPage("a4", "portrait");
+                        }
+
+                        pdf.addImage(
+                            imgData,
+                            "JPEG",
+                            0,
+                            0,
+                            210,
+                            297
+                        );
+
+                        pages[i].remove();
+                    }
 
                     pdf.save("JP-Joshi-Word-to-PDF.pdf");
 
-                    wrapper.remove();
-
                     wordStatus.textContent =
-                        "Done! Your PDF download has started.";
+                        "Done! Word document converted successfully.";
 
                 } catch (error) {
                     console.error("Word to PDF error:", error);
                     wordStatus.textContent =
-                        "Could not convert this Word file. Please try another .docx file.";
+                        "Conversion failed. Please use a valid .docx file.";
                 } finally {
                     wordBtn.disabled = false;
                 }
