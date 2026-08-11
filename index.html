@@ -254,6 +254,109 @@
             color: #fda4af !important;
         }
 
+
+        /* FILE CONVERTER */
+        .file-converter-section {
+            padding: 80px 8%;
+            background: #0f172a;
+            text-align: center;
+        }
+
+        .file-converter-section h2 {
+            color: #38bdf8;
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .file-converter-subtitle {
+            color: #94a3b8;
+            margin-bottom: 35px;
+        }
+
+        .file-converter-box {
+            max-width: 900px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+        }
+
+        .file-tool {
+            background: #020617;
+            border: 1px solid rgba(56, 189, 248, 0.22);
+            border-radius: 18px;
+            padding: 28px;
+            text-align: left;
+        }
+
+        .file-tool h3 {
+            color: #fff;
+            margin-bottom: 8px;
+            font-size: 21px;
+        }
+
+        .file-tool p {
+            color: #94a3b8;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+
+        .file-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #334155;
+            border-radius: 9px;
+            background: #0b1220;
+            color: #cbd5e1;
+            margin-bottom: 12px;
+        }
+
+        .file-btn {
+            width: 100%;
+            border: 0;
+            padding: 12px;
+            border-radius: 9px;
+            background: linear-gradient(135deg, #38bdf8, #2563eb);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .file-btn:disabled {
+            opacity: 0.55;
+            cursor: not-allowed;
+        }
+
+        .file-status {
+            min-height: 20px;
+            margin-top: 12px;
+            color: #94a3b8;
+            font-size: 13px;
+        }
+
+        .file-preview {
+            max-width: 100%;
+            max-height: 280px;
+            display: block;
+            margin: 12px auto;
+            border-radius: 8px;
+        }
+
+        .download-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        @media (max-width: 800px) {
+            .file-converter-box {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* ABOUT */
         .about {
             padding: 80px 8%;
@@ -498,6 +601,65 @@
         </div>
     </section>
 
+    <!-- JPG ↔ PDF CONVERTER -->
+    <section class="file-converter-section" id="file-converter">
+
+        <h2>📄 JPG ↔ PDF Converter</h2>
+        <p class="file-converter-subtitle">
+            Convert JPG images to PDF and PDF pages to JPG directly in your browser.
+        </p>
+
+        <div class="file-converter-box">
+
+            <!-- JPG TO PDF -->
+            <div class="file-tool">
+                <h3>🖼️ JPG → PDF</h3>
+                <p>
+                    Select one or more JPG/PNG images and convert them into a PDF.
+                    Multiple images will be added as separate PDF pages.
+                </p>
+
+                <input
+                    class="file-input"
+                    id="jpg-files"
+                    type="file"
+                    accept="image/jpeg,image/png"
+                    multiple
+                >
+
+                <button class="file-btn" id="jpg-to-pdf-btn">
+                    Convert JPG to PDF
+                </button>
+
+                <div class="file-status" id="jpg-status"></div>
+            </div>
+
+            <!-- PDF TO JPG -->
+            <div class="file-tool">
+                <h3>📄 PDF → JPG</h3>
+                <p>
+                    Select a PDF and convert its pages into JPG images.
+                    Each PDF page is downloaded as a separate JPG.
+                </p>
+
+                <input
+                    class="file-input"
+                    id="pdf-file"
+                    type="file"
+                    accept="application/pdf"
+                >
+
+                <button class="file-btn" id="pdf-to-jpg-btn">
+                    Convert PDF to JPG
+                </button>
+
+                <div class="file-status" id="pdf-status"></div>
+            </div>
+
+        </div>
+
+    </section>
+
     <!-- ABOUT -->
     <section class="about" id="about">
         <h2>About Me</h2>
@@ -605,6 +767,12 @@
 
             let mode = "bs-to-ad";
 
+            // Some UMD builds expose NepaliDate directly; others expose it as .default.
+            const NepaliDateClass =
+                (window.NepaliDate && window.NepaliDate.default)
+                    ? window.NepaliDate.default
+                    : window.NepaliDate;
+
             // Set today's AD date automatically
             const today = new Date();
             const yyyy = today.getFullYear();
@@ -652,21 +820,27 @@
             convertBtn.addEventListener("click", function () {
 
                 try {
-                    if (typeof NepaliDate === "undefined") {
-                        showError("Converter library not loaded.");
+                    if (typeof NepaliDateClass !== "function") {
+                        showError("Date converter library did not load.");
                         return;
                     }
 
                     if (mode === "bs-to-ad") {
 
-                        const value = bsInput.value.trim();
+                        const value = bsInput.value.trim().replace(/\//g, "-");
 
-                        if (!/^\d{4}[-\/]\d{1,2}[-\/]\d{1,2}$/.test(value)) {
+                        if (!/^\d{4}-\d{1,2}-\d{1,2}$/.test(value)) {
                             showError("Use BS format: YYYY-MM-DD");
                             return;
                         }
 
-                        const bs = new NepaliDate(value.replaceAll("/", "-"));
+                        const parts = value.split("-").map(Number);
+                        const year = parts[0];
+                        const month = parts[1];
+                        const day = parts[2];
+
+                        // NepaliDate constructor uses a 0-based month index.
+                        const bs = new NepaliDateClass(year, month - 1, day);
                         const ad = bs.getAD();
 
                         const adText =
@@ -689,16 +863,18 @@
                         }
 
                         const adDate = new Date(adInput.value + "T00:00:00");
-                        const bs = NepaliDate.fromAD(adDate);
+                        const bs = NepaliDateClass.fromAD(adDate);
 
-                        const bsText = bs.format("YYYY-MM-DD");
+                        const bsText =
+                            bs.getYear() + "-" +
+                            String(bs.getMonth() + 1).padStart(2, "0") + "-" +
+                            String(bs.getDate()).padStart(2, "0");
 
                         showResult(bsText, "वि.सं. • Bikram Sambat");
-
                     }
 
                 } catch (error) {
-                    console.error(error);
+                    console.error("Date Converter Error:", error);
                     showError("Invalid date. Please check the date.");
                 }
             });
@@ -706,6 +882,187 @@
             bsInput.addEventListener("keydown", function (event) {
                 if (event.key === "Enter") {
                     convertBtn.click();
+                }
+            });
+
+        });
+    </script>
+
+    <!-- File converter libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+    <!-- JPG ↔ PDF CONVERTER SCRIPT -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const jpgInput = document.getElementById("jpg-files");
+            const jpgBtn = document.getElementById("jpg-to-pdf-btn");
+            const jpgStatus = document.getElementById("jpg-status");
+
+            const pdfInput = document.getElementById("pdf-file");
+            const pdfBtn = document.getElementById("pdf-to-jpg-btn");
+            const pdfStatus = document.getElementById("pdf-status");
+
+            // PDF.js worker
+            if (window.pdfjsLib) {
+                pdfjsLib.GlobalWorkerOptions.workerSrc =
+                    "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+            }
+
+            function loadImage(file) {
+                return new Promise(function (resolve, reject) {
+                    const reader = new FileReader();
+
+                    reader.onload = function (event) {
+                        const img = new Image();
+
+                        img.onload = function () {
+                            resolve(img);
+                        };
+
+                        img.onerror = reject;
+                        img.src = event.target.result;
+                    };
+
+                    reader.onerror = reject;
+                    reader.readAsDataURL(file);
+                });
+            }
+
+            jpgBtn.addEventListener("click", async function () {
+                const files = Array.from(jpgInput.files || []);
+
+                if (!files.length) {
+                    jpgStatus.textContent = "Please select JPG or PNG image(s).";
+                    return;
+                }
+
+                try {
+                    jpgBtn.disabled = true;
+                    jpgStatus.textContent = "Converting images to PDF...";
+
+                    const { jsPDF } = window.jspdf;
+                    let pdf = null;
+
+                    for (let i = 0; i < files.length; i++) {
+                        const img = await loadImage(files[i]);
+
+                        const imgWidth = img.naturalWidth || img.width;
+                        const imgHeight = img.naturalHeight || img.height;
+
+                        // Use A4-sized page and fit image inside it.
+                        const pageW = 210;
+                        const pageH = 297;
+                        const margin = 8;
+
+                        const ratio = Math.min(
+                            (pageW - margin * 2) / imgWidth,
+                            (pageH - margin * 2) / imgHeight
+                        );
+
+                        const w = imgWidth * ratio;
+                        const h = imgHeight * ratio;
+                        const x = (pageW - w) / 2;
+                        const y = (pageH - h) / 2;
+
+                        if (!pdf) {
+                            pdf = new jsPDF({
+                                orientation: pageW >= pageH ? "landscape" : "portrait",
+                                unit: "mm",
+                                format: "a4"
+                            });
+                        } else {
+                            pdf.addPage("a4", "portrait");
+                        }
+
+                        pdf.addImage(
+                            img,
+                            "JPEG",
+                            x,
+                            y,
+                            w,
+                            h,
+                            undefined,
+                            "MEDIUM"
+                        );
+                    }
+
+                    pdf.save("JP-Joshi-Images.pdf");
+                    jpgStatus.textContent = "Done! PDF downloaded successfully.";
+
+                } catch (error) {
+                    console.error(error);
+                    jpgStatus.textContent = "Could not convert the images.";
+                } finally {
+                    jpgBtn.disabled = false;
+                }
+            });
+
+            pdfBtn.addEventListener("click", async function () {
+                const file = pdfInput.files && pdfInput.files[0];
+
+                if (!file) {
+                    pdfStatus.textContent = "Please select a PDF file.";
+                    return;
+                }
+
+                try {
+                    pdfBtn.disabled = true;
+                    pdfStatus.textContent = "Converting PDF pages to JPG...";
+
+                    const arrayBuffer = await file.arrayBuffer();
+                    const pdf = await pdfjsLib.getDocument({
+                        data: arrayBuffer
+                    }).promise;
+
+                    for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber++) {
+
+                        const page = await pdf.getPage(pageNumber);
+
+                        const scale = 2;
+                        const viewport = page.getViewport({ scale: scale });
+
+                        const canvas = document.createElement("canvas");
+                        const context = canvas.getContext("2d");
+
+                        canvas.width = Math.ceil(viewport.width);
+                        canvas.height = Math.ceil(viewport.height);
+
+                        await page.render({
+                            canvasContext: context,
+                            viewport: viewport
+                        }).promise;
+
+                        const blob = await new Promise(function (resolve) {
+                            canvas.toBlob(resolve, "image/jpeg", 0.92);
+                        });
+
+                        const url = URL.createObjectURL(blob);
+                        const link = document.createElement("a");
+
+                        link.href = url;
+                        link.download =
+                            "JP-Joshi-PDF-page-" + pageNumber + ".jpg";
+
+                        document.body.appendChild(link);
+                        link.click();
+                        link.remove();
+
+                        setTimeout(function () {
+                            URL.revokeObjectURL(url);
+                        }, 1000);
+                    }
+
+                    pdfStatus.textContent =
+                        pdf.numPages + " page(s) converted. JPG download started.";
+
+                } catch (error) {
+                    console.error(error);
+                    pdfStatus.textContent =
+                        "Could not convert the PDF. Please check the file.";
+                } finally {
+                    pdfBtn.disabled = false;
                 }
             });
 
